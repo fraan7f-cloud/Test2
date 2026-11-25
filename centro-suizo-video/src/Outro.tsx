@@ -38,7 +38,7 @@ export const OutroMessage: React.FC = () => {
           <div style={{ height: 8 }} />
           <Kinetic text="ESTAS FORMAS," at={52} size={76} weight={900} spacing={3} stagger={0.9} />
           <div style={{ height: 30 }} />
-          <Kinetic text="¡Y MUCHO MÁS!" at={BIG} size={128} gold weight={900} spacing={2} stagger={1.1} />
+          <Kinetic text="¡Y MUCHO MÁS!" at={BIG} size={104} gold weight={900} spacing={2} stagger={1.1} />
         </div>
         {[0, 1, 2, 3, 4, 5, 6].map((i) => <Sparkle key={i} x={120 + i * 140} y={1500 + (i % 2) * 120} size={60} frame={f} phase={i * 1.1} speed={0.18} />)}
       </AbsoluteFill>
