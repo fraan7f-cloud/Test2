@@ -1,132 +1,129 @@
 import React from 'react';
 import {AbsoluteFill, Easing, interpolate, spring, useCurrentFrame} from 'remotion';
+import {backOut, Crucible, Drop, Hammer, INK, Ring2D, Sparkle, squash} from '../components/Illustration';
 import {Body} from '../components/Label';
 import {GoldText} from '../components/GoldText';
 import {Reveal} from '../components/Reveal';
 import {SceneShell} from '../components/SceneShell';
-import {COLORS, EASE_OUT, FONTS} from '../theme';
+import {COLORS, FONTS} from '../theme';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
+/** El martillo golpea el anillo 24K en este frame. */
 export const DENT_AT = 34;
+/** Empieza la mezcla de la aleación 18K. */
 export const ALLOY_AT = 104;
+const CX = 540;
+const CY = 960;
 
-/** Anillo de oro puro que se abolla y se raya: el 24K es demasiado blando. */
+/** Parte A: el martillo abolla y raya un anillo de oro puro. */
 const SoftRing: React.FC = () => {
   const frame = useCurrentFrame();
-  const dent = spring({frame: frame - DENT_AT, fps: 30, config: {damping: 7, mass: 0.7}});
-  const scratch = (from: number) => interpolate(frame, [from, from + 10], [0, 1], clamp);
+  // anticipación (sube 14–28), golpe (28–34), rebote
+  const swing = interpolate(frame, [8, 26, DENT_AT, DENT_AT + 6, DENT_AT + 26], [-20, -55, 12, 4, -60], {...clamp, easing: Easing.inOut(Easing.quad)});
+  const dent = spring({frame: frame - DENT_AT, fps: 30, config: {damping: 6, mass: 0.6}});
+  const scratch = (from: number) => interpolate(frame, [from, from + 8], [0, 1], clamp);
+  const visible = interpolate(frame, [4, 14, 88, 100], [0, 1, 1, 0], clamp);
   return (
-    <div
-      style={{
-        opacity: interpolate(frame, [6, 18, 90, 100], [0, 1, 1, 0], clamp),
-        scale: `${1 + 0.16 * dent} ${1 - 0.22 * dent}`,
-      }}
-    >
-      <svg width={600} height={600} viewBox="-300 -300 600 600">
-        <defs>
-          <linearGradient id="ring24" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#FFF4D2" />
-            <stop offset="0.3" stopColor={COLORS.goldLight} />
-            <stop offset="0.65" stopColor="#D9A93A" />
-            <stop offset="1" stopColor="#7A5A1E" />
-          </linearGradient>
-        </defs>
-        <circle r={210} fill="none" stroke="url(#ring24)" strokeWidth={56} style={{filter: 'drop-shadow(0 0 22px rgba(226,200,120,.5))'}} />
+    <g opacity={visible}>
+      <g transform={`translate(${CX} ${CY}) scale(${1 + 0.2 * dent} ${1 - 0.28 * dent})`}>
+        <Ring2D rx={240} ry={150} band={52} />
         {[
-          {d: 'M -250 -60 L -120 -200', at: DENT_AT + 8},
-          {d: 'M 120 170 L 250 40', at: DENT_AT + 16},
-          {d: 'M -40 205 L 90 190', at: DENT_AT + 22},
+          {d: 'M -200 -60 L -120 -120', at: DENT_AT + 2},
+          {d: 'M 120 110 L 220 40', at: DENT_AT + 6},
+          {d: 'M -40 140 L 60 135', at: DENT_AT + 10},
         ].map((s) => (
-          <path
-            key={s.d}
-            d={s.d}
-            stroke="rgba(60,40,10,.85)"
-            strokeWidth={5}
-            strokeLinecap="round"
-            pathLength={1}
-            strokeDasharray="1 1"
-            strokeDashoffset={1 - scratch(s.at)}
-          />
+          <path key={s.d} d={s.d} stroke={INK.line} strokeWidth={6} strokeLinecap="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - scratch(s.at)} />
         ))}
-        <text y={18} textAnchor="middle" fontFamily="Marcellus" fontSize={84} fill={COLORS.goldLight}>
+        <text x={0} y={-178} textAnchor="middle" fontFamily="Marcellus" fontSize={72} fill={INK.light}>
           24K
         </text>
-      </svg>
-    </div>
+      </g>
+      {/* estrellitas de impacto (lenguaje de animación 2D) */}
+      {[-1, 1].map((d) => (
+        <Sparkle key={d} x={CX + d * 120} y={CY - 170} size={38} at={DENT_AT} dur={18} color={INK.ivory} />
+      ))}
+      <g transform={`translate(${CX + 380} ${CY + 120}) rotate(${swing - 40})`} opacity={interpolate(frame, [4, 12, 80, 90], [0, 1, 1, 0], clamp)}>
+        <Hammer />
+      </g>
+    </g>
   );
 };
 
-/** Anillo de aleación: 75 % oro + 25 % plata y cobre. */
-const AlloyDonut: React.FC = () => {
+const DROPS = [
+  {label: 'oro', color: INK.mid, shade: INK.shadow, size: 46, x: -110, at: ALLOY_AT + 2},
+  {label: 'plata', color: INK.silver, shade: INK.silverShadow, size: 28, x: 40, at: ALLOY_AT + 16},
+  {label: 'cobre', color: INK.copper, shade: INK.copperShadow, size: 28, x: 130, at: ALLOY_AT + 26},
+];
+
+/** Parte B: gotas de oro, plata y cobre caen al crisol y nace el anillo 18K. */
+const Alloy: React.FC = () => {
   const frame = useCurrentFrame();
-  const r = 210;
-  const c = 2 * Math.PI * r;
-  const gold = interpolate(frame, [ALLOY_AT, ALLOY_AT + 34], [0, 0.75], {...clamp, easing: Easing.bezier(...EASE_OUT)});
-  const alloy = interpolate(frame, [ALLOY_AT + 30, ALLOY_AT + 50], [0, 0.25], {...clamp, easing: Easing.bezier(...EASE_OUT)});
+  const show = interpolate(frame, [ALLOY_AT - 6, ALLOY_AT + 4], [0, 1], clamp);
+  const glow = interpolate(frame, [ALLOY_AT + 20, ALLOY_AT + 44], [0, 1], clamp);
+  const ringP = interpolate(frame, [ALLOY_AT + 46, ALLOY_AT + 66], [0, 1], {...clamp, easing: backOut});
+  const [sx, sy] = squash(frame, ALLOY_AT + 66, 0.25);
   return (
-    <div style={{opacity: interpolate(frame, [ALLOY_AT - 4, ALLOY_AT + 6], [0, 1], clamp), position: 'absolute'}}>
-      <svg width={600} height={600} viewBox="-300 -300 600 600" style={{rotate: '-90deg'}}>
-        <circle r={r} fill="none" stroke="rgba(188,175,155,.12)" strokeWidth={58} />
-        <circle
-          r={r}
-          fill="none"
-          stroke="url(#ring24)"
-          strokeWidth={58}
-          strokeDasharray={`${gold * c} ${c}`}
-          style={{filter: 'drop-shadow(0 0 16px rgba(226,200,120,.6))'}}
-        />
-        <circle
-          r={r}
-          fill="none"
-          stroke={COLORS.taupe}
-          strokeWidth={58}
-          strokeDasharray={`${alloy * c} ${c}`}
-          strokeDashoffset={-0.75 * c}
-        />
-      </svg>
-      <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <GoldText shineFrom={ALLOY_AT + 40} style={{fontSize: 150}}>
-          18K
-        </GoldText>
-      </div>
-    </div>
+    <g opacity={show}>
+      <g transform={`translate(${CX} ${CY + 230})`}>
+        <Crucible glow={glow} />
+      </g>
+      {DROPS.map((d) => {
+        const p = interpolate(frame, [d.at, d.at + 18], [0, 1], {...clamp, easing: Easing.in(Easing.quad)});
+        if (p <= 0 || p >= 1) return null;
+        return (
+          <g key={d.label} transform={`translate(${CX + d.x * (1 - p * 0.6)} ${interpolate(p, [0, 1], [CY - 340, CY + 230])})`}>
+            <Drop color={d.color} shade={d.shade} size={d.size} stretch={p * 0.5} />
+          </g>
+        );
+      })}
+      {DROPS.map((d) => (
+        <Sparkle key={d.label} x={CX + d.x * 0.4} y={CY + 220} size={34} at={d.at + 18} color={d.color} />
+      ))}
+      <g transform={`translate(${CX} ${CY + 210 - ringP * 330}) scale(${ringP * 0.8 * sx} ${ringP * 0.8 * sy})`} opacity={ringP > 0 ? 1 : 0}>
+        <Ring2D rx={200} ry={120} band={46} />
+      </g>
+      <Sparkle x={CX + 190} y={CY - 200} size={56} at={ALLOY_AT + 66} />
+      <Sparkle x={CX - 200} y={CY - 80} size={40} at={ALLOY_AT + 74} />
+    </g>
   );
 };
 
-/** Escena 5 (26,7–33,3 s): ¿por qué no usar oro 24K en joyería? */
+/** Escena 5 (26,7–33,3 s): ¿por qué no 24K? */
 export const S5WhyNot24: React.FC = () => (
-  <SceneShell duration={200} push={1.04}>
-    <AbsoluteFill style={{alignItems: 'center'}}>
-      <Reveal at={2} outAt={90} style={{position: 'absolute', top: 230}}>
-        <Body style={{fontFamily: FONTS.display, fontSize: 104, lineHeight: 1.1}}>
-          ¿Y por qué
-          <br />
-          <GoldText shineFrom={10}>no 24K?</GoldText>
-        </Body>
-      </Reveal>
-      <Reveal at={ALLOY_AT - 2} style={{position: 'absolute', top: 250}}>
-        <Body style={{fontFamily: FONTS.display, fontSize: 84, lineHeight: 1.15}}>
-          18K = 75 % oro
-          <br />
-          <span style={{color: COLORS.taupe}}>+ 25 % plata y cobre</span>
-        </Body>
-      </Reveal>
-      <div style={{position: 'absolute', top: 640, width: 600, height: 600, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+  <SceneShell duration={200} push={1.03}>
+    <AbsoluteFill>
+      <svg width={1080} height={1920} style={{position: 'absolute', inset: 0}}>
         <SoftRing />
-        <AlloyDonut />
-      </div>
-      <Reveal at={DENT_AT + 6} outAt={90} style={{position: 'absolute', top: 1350, maxWidth: 900}}>
-        <Body style={{fontSize: 58}}>
-          El oro puro es tan blando que <span style={{color: COLORS.goldLight}}>se raya y se deforma.</span>
-        </Body>
-      </Reveal>
-      <Reveal at={ALLOY_AT + 50} style={{position: 'absolute', top: 1360}}>
-        <GoldText shineFrom={ALLOY_AT + 60} style={{fontSize: 84, textAlign: 'center', lineHeight: 1.15}}>
-          Firmeza, sin perder
-          <br />
-          su brillo.
-        </GoldText>
-      </Reveal>
+        <Alloy />
+      </svg>
+      <AbsoluteFill style={{alignItems: 'center'}}>
+        <Reveal at={2} outAt={90} style={{position: 'absolute', top: 230}}>
+          <Body style={{fontFamily: FONTS.display, fontSize: 104, lineHeight: 1.1}}>
+            ¿Y por qué
+            <br />
+            <GoldText shineFrom={10}>no 24K?</GoldText>
+          </Body>
+        </Reveal>
+        <Reveal at={DENT_AT + 8} outAt={90} style={{position: 'absolute', top: 1400, maxWidth: 900}}>
+          <Body style={{fontSize: 58}}>
+            El oro puro es tan blando que <span style={{color: COLORS.goldLight}}>se raya y se deforma.</span>
+          </Body>
+        </Reveal>
+        <Reveal at={ALLOY_AT - 2} style={{position: 'absolute', top: 230}}>
+          <Body style={{fontFamily: FONTS.display, fontSize: 84, lineHeight: 1.15}}>
+            <GoldText shineFrom={ALLOY_AT + 66}>18K</GoldText> = 75 % oro
+            <br />
+            <span style={{color: COLORS.taupe}}>+ 25 % plata y cobre</span>
+          </Body>
+        </Reveal>
+        <Reveal at={ALLOY_AT + 60} style={{position: 'absolute', top: 1500}}>
+          <GoldText shineFrom={ALLOY_AT + 70} style={{fontSize: 80, textAlign: 'center', lineHeight: 1.15}}>
+            Firmeza, sin perder
+            <br />
+            su brillo.
+          </GoldText>
+        </Reveal>
+      </AbsoluteFill>
     </AbsoluteFill>
   </SceneShell>
 );

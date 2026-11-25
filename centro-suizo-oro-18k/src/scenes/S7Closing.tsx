@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {DiamondRule} from '../components/DiamondRule';
+import {JewelBox, Sparkle} from '../components/Illustration';
 import {GoldText} from '../components/GoldText';
 import {Body, Label} from '../components/Label';
 import {ProductCard} from '../components/ProductCard';
@@ -12,7 +13,10 @@ const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 export const TAGLINE_AT = 118;
 export const LOGO_AT = 196;
 
-/** Tarjeta que entra desde abajo con rotación y deriva lenta (parallax). */
+const BOX_X = 540;
+const BOX_Y = 1560;
+
+/** Tarjeta que sale del joyero en arco (con giro y rebote) y luego deriva lentamente. */
 const FloatingCard: React.FC<{
   readonly src: string;
   readonly caption: string;
@@ -25,17 +29,21 @@ const FloatingCard: React.FC<{
   readonly drift: number;
 }> = ({src, caption, at, x, y, rot, w, h, drift}) => {
   const frame = useCurrentFrame();
-  const p = interpolate(frame, [at, at + 26], [0, 1], {...clamp, easing: Easing.bezier(...EASE_OUT)});
+  const p = interpolate(frame, [at, at + 24], [0, 1], {...clamp, easing: Easing.out(Easing.back(1.4))});
   const out = interpolate(frame, [TAGLINE_AT - 14, TAGLINE_AT], [0, 1], clamp);
+  const startX = BOX_X - w / 2;
+  const startY = BOX_Y - h / 2;
+  const cx = interpolate(p, [0, 1], [startX, x]);
+  const cy = interpolate(p, [0, 1], [startY, y]) - Math.sin(Math.min(p, 1) * Math.PI) * 220;
   return (
     <div
       style={{
         position: 'absolute',
-        left: x,
-        top: y,
-        opacity: p * (1 - out),
-        translate: `0px ${(1 - p) * 500 - frame * drift - out * 60}px`,
-        rotate: `${rot * p}deg`,
+        left: cx,
+        top: cy - Math.max(0, frame - at - 24) * drift - out * 60,
+        opacity: interpolate(frame, [at, at + 4], [0, 1], clamp) * (1 - out),
+        scale: String(interpolate(p, [0, 1], [0.15, 1])),
+        rotate: `${interpolate(p, [0, 1], [rot * -6, rot]) + Math.sin((frame + at) / 16) * 1.2}deg`,
         filter: `blur(${out * 10}px)`,
       }}
     >
@@ -43,6 +51,64 @@ const FloatingCard: React.FC<{
     </div>
   );
 };
+
+/** Joyero ilustrado que se abre al inicio del cierre. */
+const Box: React.FC = () => {
+  const frame = useCurrentFrame();
+  const open = interpolate(frame, [2, 14], [0, 1], {...clamp, easing: Easing.out(Easing.back(1.6))});
+  const out = interpolate(frame, [TAGLINE_AT - 14, TAGLINE_AT], [0, 1], clamp);
+  const appear = interpolate(frame, [0, 6], [0, 1], clamp);
+  return (
+    <svg width={1080} height={1920} style={{position: 'absolute', inset: 0, opacity: appear * (1 - out)}}>
+      <g transform={`translate(${BOX_X} ${BOX_Y}) scale(0.8)`}>
+        <JewelBox open={open} />
+      </g>
+      <Sparkle x={BOX_X - 150} y={BOX_Y - 60} size={40} at={10} />
+      <Sparkle x={BOX_X + 160} y={BOX_Y - 90} size={50} at={18} />
+      <Sparkle x={BOX_X} y={BOX_Y - 140} size={60} at={30} />
+    </svg>
+  );
+};
+
+/** Trazo caligráfico que se dibuja bajo "Se sienten.". */
+const Swash: React.FC = () => {
+  const frame = useCurrentFrame();
+  const p = interpolate(frame, [TAGLINE_AT + 34, TAGLINE_AT + 60], [0, 1], {...clamp, easing: Easing.inOut(Easing.quad)});
+  const out = interpolate(frame, [LOGO_AT - 14, LOGO_AT], [0, 1], clamp);
+  return (
+    <svg width={760} height={120} style={{opacity: 1 - out, marginTop: -30}}>
+      <path
+        d="M 20 70 C 160 20, 300 110, 420 60 S 640 20, 740 60"
+        stroke="url(#swashGold)"
+        strokeWidth={6}
+        fill="none"
+        strokeLinecap="round"
+        pathLength={1}
+        strokeDasharray="1 1"
+        strokeDashoffset={1 - p}
+      />
+      <defs>
+        <linearGradient id="swashGold" x1="0" x2="1">
+          <stop offset="0" stopColor="rgba(226,200,120,0)" />
+          <stop offset="0.3" stopColor={COLORS.goldLight} />
+          <stop offset="1" stopColor={COLORS.gold} />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
+/** Destellos que aparecen alrededor del logo. */
+const LogoSparkles: React.FC = () => (
+  <svg width={1080} height={1920} style={{position: 'absolute', inset: 0, pointerEvents: 'none'}}>
+    <Sparkle x={250} y={560} size={56} at={LOGO_AT + 18} dur={28} />
+    <Sparkle x={850} y={640} size={44} at={LOGO_AT + 30} dur={26} />
+    <Sparkle x={540} y={420} size={70} at={LOGO_AT + 44} dur={30} />
+    <Sparkle x={820} y={960} size={36} at={LOGO_AT + 58} dur={26} />
+    <Sparkle x={230} y={900} size={40} at={LOGO_AT + 70} dur={26} />
+    <Sparkle x={700} y={520} size={30} at={LOGO_AT + 84} dur={24} />
+  </svg>
+);
 
 /** Logo oficial recoloreado en dorado, con un reflejo de luz recortado a su silueta. */
 const Logo: React.FC = () => {
@@ -81,17 +147,18 @@ const Logo: React.FC = () => {
 export const S7Closing: React.FC = () => (
   <SceneShell duration={300} push={1.03} fadeOut={10}>
     <AbsoluteFill style={{alignItems: 'center'}}>
-      {/* A · Galería de producto */}
+      {/* A · Joyero que se abre y galería de producto */}
+      <Box />
       <Reveal at={4} outAt={TAGLINE_AT - 14} style={{position: 'absolute', top: 200, textAlign: 'center'}}>
         <Label style={{fontSize: 38}}>Joyería Centro Suizo</Label>
         <GoldText shineFrom={14} style={{fontSize: 96, marginTop: 10}}>
           Oro 18K certificado
         </GoldText>
       </Reveal>
-      <FloatingCard src="products/argollas_media_cana.jpg" caption="Argollas 18kt" at={8} x={60} y={500} rot={-5} w={470} h={560} drift={0.25} />
-      <FloatingCard src="products/aros_bolita.jpg" caption="Aros 18kt" at={20} x={550} y={620} rot={4} w={470} h={560} drift={0.4} />
-      <FloatingCard src="products/cadena_bolitas.jpg" caption="Cadenas 18kt" at={32} x={300} y={1215} rot={-1.5} w={480} h={480} drift={0.55} />
-      <Reveal at={56} outAt={TAGLINE_AT - 14} style={{position: 'absolute', top: 1745}}>
+      <FloatingCard src="products/argollas_media_cana.jpg" caption="Argollas 18kt" at={14} x={60} y={470} rot={-5} w={450} h={520} drift={0.25} />
+      <FloatingCard src="products/aros_bolita.jpg" caption="Aros 18kt" at={22} x={570} y={560} rot={4} w={450} h={520} drift={0.35} />
+      <FloatingCard src="products/cadena_bolitas.jpg" caption="Cadenas 18kt" at={30} x={330} y={1010} rot={-2} w={420} h={400} drift={0.3} />
+      <Reveal at={56} outAt={TAGLINE_AT - 14} style={{position: 'absolute', top: 1770}}>
         <Label style={{fontSize: 36, color: COLORS.goldLight}}>◆ Garantía de por vida ◆</Label>
       </Reveal>
 
@@ -109,8 +176,10 @@ export const S7Closing: React.FC = () => (
             Se sienten.
           </GoldText>
         </Reveal>
+        <Swash />
       </AbsoluteFill>
 
+      <LogoSparkles />
       {/* C · Firma */}
       <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', paddingBottom: 120}}>
         <Logo />

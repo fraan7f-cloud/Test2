@@ -6,7 +6,7 @@
   "scripts": {
     "studio": "remotion studio",
     "audio": "python3 scripts/generate_audio.py",
-    "render": "remotion render CentroSuizo18K Renders/centro-suizo-oro-18k.mp4 --browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell"
+    "render": "remotion render CentroSuizo18K Renders/centro-suizo-oro-18k-2d.mp4 --browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.547",

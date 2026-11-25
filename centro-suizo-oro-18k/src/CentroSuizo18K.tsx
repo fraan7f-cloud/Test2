@@ -3,7 +3,7 @@ import React from 'react';
 import {AbsoluteFill, interpolate, Sequence, staticFile, Track} from 'remotion';
 import {Backdrop} from './components/Backdrop';
 import {LightSweep} from './components/LightSweep';
-import {S1Hook} from './scenes/S1Hook';
+import {NUGGET_HIT, S1Hook} from './scenes/S1Hook';
 import {S2Seed} from './scenes/S2Seed';
 import {S3TwentyFour, SEGMENT_START, SEGMENT_STEP} from './scenes/S3TwentyFour';
 import {HIGHLIGHT_AT, KARATS, S4Compare} from './scenes/S4Compare';
@@ -61,7 +61,7 @@ export const CentroSuizo18K: React.FC = () => {
 
       {/* ---------- Efectos de sonido (también sintetizados desde cero) ---------- */}
       <Track name="SFX · Gancho">
-        <Audio name="Impacto 18K" src={sfx('impact.wav')} from={S.hook + 3} volume={0.8} />
+        <Audio name="Impacto 18K" src={sfx('impact.wav')} from={S.hook + NUGGET_HIT - 1} volume={0.8} />
       </Track>
       <Track name="SFX · Riser">
         <Audio name="Subida inicial" src={sfx('riser.wav')} from={S.hook + 12} volume={0.28} />
@@ -70,7 +70,7 @@ export const CentroSuizo18K: React.FC = () => {
       <Track name="SFX · Brillos">
         <Audio name="Brillo 18K" src={sfx('shimmer.wav')} from={S.hook + 26} volume={0.55} />
         <Audio name="Brillo 18K destacado" src={sfx('shimmer.wav')} from={S.compare + HIGHLIGHT_AT} volume={0.5} />
-        <Audio name="Brillo aleación" src={sfx('shimmer.wav')} from={S.why + ALLOY_AT + 40} volume={0.4} />
+        <Audio name="Brillo anillo 18K" src={sfx('shimmer.wav')} from={S.why + ALLOY_AT + 64} volume={0.45} />
         <Audio name="Brillo 'Se sienten'" src={sfx('shimmer.wav')} from={S.closing + TAGLINE_AT + 28} volume={0.5} />
       </Track>
       <Track name="SFX · Transiciones">
@@ -82,6 +82,10 @@ export const CentroSuizo18K: React.FC = () => {
       <Track name="SFX · Ticks">
         <Audio name="Semilla cae" src={sfx('tick.wav')} from={S.seed + 66} volume={0.7} />
         <Audio name="Oro cae" src={sfx('tick.wav')} from={S.seed + 104} volume={0.7} />
+        <Audio name="Gota oro" src={sfx('tick.wav')} from={S.why + ALLOY_AT + 20} volume={0.6} />
+        <Audio name="Gota plata" src={sfx('tick.wav')} from={S.why + ALLOY_AT + 34} volume={0.5} />
+        <Audio name="Gota cobre" src={sfx('tick.wav')} from={S.why + ALLOY_AT + 44} volume={0.5} />
+        <Audio name="Joyero se abre" src={sfx('tick.wav')} from={S.closing + 8} volume={0.6} />
         {new Array(24).fill(true).map((_, i) => (
           <Audio
             key={`seg${i}`}

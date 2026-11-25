@@ -1,124 +1,116 @@
 import React from 'react';
 import {AbsoluteFill, Easing, interpolate, random, useCurrentFrame} from 'remotion';
+import {Hammer, INK, Sparkle} from '../components/Illustration';
 import {Body} from '../components/Label';
 import {GoldText} from '../components/GoldText';
 import {ProductCard} from '../components/ProductCard';
 import {Reveal} from '../components/Reveal';
 import {SceneShell} from '../components/SceneShell';
-import {COLORS, EASE_OUT, FONTS} from '../theme';
+import {COLORS, FONTS} from '../theme';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
-/** Frame local del golpe del sello (cae en el 3er tiempo del compás 11). */
+/** Frame local del golpe del sello (3er tiempo del compás 11). */
 export const STAMP_AT = 50;
+const BX = 90;
+const BY = 650;
+const BW = 900;
+const BH = 280;
 
-/** Interior de un anillo (banda de oro) donde se graba el sello 750. */
-const Band: React.FC = () => {
+/** Banda interior de la argolla (ilustrada) + punzón y martillo que graban el 750. */
+const StampScene: React.FC = () => {
   const frame = useCurrentFrame();
   const shakeAmt = interpolate(frame, [STAMP_AT, STAMP_AT + 10], [14, 0], clamp);
   const shake = frame >= STAMP_AT ? (random(`sh${frame}`) - 0.5) * shakeAmt : 0;
-  const pressed = interpolate(frame, [STAMP_AT - 8, STAMP_AT], [0, 1], {...clamp, easing: Easing.in(Easing.cubic)});
+  // punzón: baja (10–30), espera, se hunde con el golpe y luego se retira
+  const punchY = interpolate(frame, [10, 30, STAMP_AT, STAMP_AT + 4, STAMP_AT + 16, STAMP_AT + 30], [-300, -40, -40, -14, -24, -420], {...clamp, easing: Easing.inOut(Easing.quad)});
+  const hammer = interpolate(frame, [14, 42, STAMP_AT, STAMP_AT + 6, STAMP_AT + 30], [18, 40, 0, 6, 45], {...clamp, easing: Easing.inOut(Easing.quad)});
+  const pressed = frame >= STAMP_AT ? 1 : 0;
+  const tools = interpolate(frame, [6, 14, STAMP_AT + 14, STAMP_AT + 26], [0, 1, 1, 0], clamp);
+  const cx = BX + BW / 2;
   return (
-    <div style={{position: 'relative', translate: `${shake}px ${shake * 0.6}px`}}>
-      <div
-        style={{
-          width: 900,
-          height: 300,
-          borderRadius: 40,
-          backgroundImage:
-            'linear-gradient(180deg, #4A360F 0%, #9C7A2C 12%, #E2C878 30%, #FFF4D2 42%, #E2C878 55%, #C8A84B 72%, #7A5A1E 90%, #3E2D0C 100%)',
-          boxShadow: '0 40px 80px rgba(0,0,0,.6), inset 0 0 40px rgba(0,0,0,.35)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 60,
-          overflow: 'hidden',
-          position: 'relative',
-        }}
-      >
-        {/* reflejo que recorre el metal */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            width: 220,
-            left: interpolate(frame, [0, 200], [-300, 1100]),
-            background: 'linear-gradient(90deg, rgba(255,255,255,0), rgba(255,250,230,.55), rgba(255,255,255,0))',
-            rotate: '12deg',
-          }}
-        />
-        <span
-          style={{
-            fontFamily: FONTS.display,
-            fontSize: 200,
-            color: 'rgba(92,66,18,.9)',
-            textShadow: '0 3px 1px rgba(255,244,210,.75), 0 -2px 2px rgba(40,25,5,.6)',
-            opacity: pressed,
-            scale: String(interpolate(pressed, [0, 1], [1.6, 1])),
-            letterSpacing: '0.04em',
-          }}
-        >
-          750
-        </span>
-      </div>
-      {/* chispas en el golpe */}
-      {new Array(18).fill(true).map((_, i) => {
+    <svg width={1080} height={1920} style={{position: 'absolute', inset: 0}}>
+      <g transform={`translate(${shake} ${shake * 0.6})`}>
+        {/* banda ilustrada: franjas planas de luz y sombra */}
+        <rect x={BX} y={BY} width={BW} height={BH} rx={40} fill={INK.mid} />
+        <rect x={BX} y={BY + BH * 0.62} width={BW} height={BH * 0.38} rx={40} fill={INK.shadow} />
+        <rect x={BX} y={BY + BH * 0.62} width={BW} height={30} fill={INK.shadow} />
+        <rect x={BX + 30} y={BY + 34} width={BW - 60} height={26} rx={13} fill={INK.hi} opacity={0.75} />
+        <rect x={BX} y={BY + BH * 0.5} width={BW} height={10} fill={INK.light} opacity={0.6} />
+        {/* grabado 750 */}
+        <g opacity={pressed}>
+          <text x={cx} y={BY + 200} textAnchor="middle" fontFamily="Marcellus" fontSize={190} fill={INK.deep} letterSpacing={8}>
+            750
+          </text>
+          <text x={cx} y={BY + 195} textAnchor="middle" fontFamily="Marcellus" fontSize={190} fill={INK.shadow} letterSpacing={8}>
+            750
+          </text>
+        </g>
+      </g>
+      {/* punzón */}
+      <g opacity={tools} transform={`translate(${cx} ${BY + punchY})`}>
+        <rect x={-46} y={-170} width={92} height={150} rx={10} fill={INK.silver} />
+        <rect x={10} y={-170} width={36} height={150} rx={8} fill={INK.silverShadow} />
+        <path d="M -46 -20 L 46 -20 L 30 30 L -30 30 Z" fill={INK.silverShadow} />
+      </g>
+      {/* martillo que golpea el punzón */}
+      <g opacity={tools} transform={`translate(${cx + 340} ${BY + punchY - 140}) rotate(${hammer - 90})`}>
+        <Hammer />
+      </g>
+      {/* chispas */}
+      {new Array(16).fill(true).map((_, i) => {
         const ang = random(`a${i}`) * Math.PI * 2;
-        const dist = interpolate(frame, [STAMP_AT, STAMP_AT + 26], [0, 160 + random(`d${i}`) * 260], {
-          ...clamp,
-          easing: Easing.bezier(...EASE_OUT),
-        });
+        const dist = interpolate(frame, [STAMP_AT, STAMP_AT + 24], [0, 140 + random(`d${i}`) * 240], {...clamp, easing: Easing.out(Easing.quad)});
         return (
-          <div
+          <circle
             key={i}
-            style={{
-              position: 'absolute',
-              left: 450 + Math.cos(ang) * dist,
-              top: 150 + Math.sin(ang) * dist * 0.6,
-              width: 8,
-              height: 8,
-              borderRadius: '50%',
-              background: '#FFF4D2',
-              boxShadow: '0 0 14px rgba(255,236,190,1)',
-              opacity: interpolate(frame, [STAMP_AT, STAMP_AT + 4, STAMP_AT + 26], [0, 1, 0], clamp),
-            }}
+            cx={cx + Math.cos(ang) * dist}
+            cy={BY + 60 + Math.sin(ang) * dist * 0.6}
+            r={6}
+            fill={INK.hi}
+            opacity={interpolate(frame, [STAMP_AT, STAMP_AT + 3, STAMP_AT + 24], [0, 1, 0], clamp)}
           />
         );
       })}
-    </div>
+      <Sparkle x={cx - 260} y={BY + 40} size={50} at={STAMP_AT + 2} />
+      <Sparkle x={cx + 270} y={BY + 220} size={40} at={STAMP_AT + 8} />
+      <Sparkle x={cx + 120} y={BY + 20} size={34} at={STAMP_AT + 30} />
+    </svg>
   );
 };
 
-/** Escena 6 (33,3–40 s): el sello 750 como garantía del oro 18K. */
+/** Escena 6 (33,3–40 s): el sello 750, grabado con punzón y martillo. */
 export const S6Hallmark: React.FC = () => {
   const frame = useCurrentFrame();
   return (
-    <SceneShell duration={200} push={1.04}>
-      <AbsoluteFill style={{alignItems: 'center', paddingTop: 210}}>
-        <Reveal at={4}>
-          <Body style={{fontFamily: FONTS.display, fontSize: 100}}>
-            Busca el <GoldText shineFrom={STAMP_AT}>sello 750</GoldText>
-          </Body>
-        </Reveal>
-        <div style={{marginTop: 70}}>
-          <Band />
-        </div>
-        <Reveal at={STAMP_AT + 14} style={{marginTop: 60, maxWidth: 900}}>
-          <Body style={{fontSize: 54}}>
-            750 milésimas de oro puro:
-            <br />
-            <span style={{color: COLORS.goldLight}}>la firma del oro 18K.</span>
-          </Body>
-        </Reveal>
-        <Reveal at={STAMP_AT + 40} rise={80} style={{marginTop: 60}}>
-          <ProductCard
-            src="products/argollas_bicolor.jpg"
-            caption="Argolla bi color · Oro 18kt"
-            width={560}
-            height={500}
-            zoom={interpolate(frame, [STAMP_AT + 40, 200], [1.08, 1.2], clamp)}
-          />
-        </Reveal>
+    <SceneShell duration={200} push={1.03}>
+      <AbsoluteFill>
+        <StampScene />
+        <AbsoluteFill style={{alignItems: 'center', paddingTop: 200}}>
+          <Reveal at={4}>
+            <Body style={{fontFamily: FONTS.display, fontSize: 96}}>
+              Busca el <GoldText shineFrom={STAMP_AT}>sello 750</GoldText>
+            </Body>
+          </Reveal>
+        </AbsoluteFill>
+        <AbsoluteFill style={{alignItems: 'center', top: 990}}>
+          <Reveal at={STAMP_AT + 14} style={{maxWidth: 900}}>
+            <Body style={{fontSize: 54}}>
+              750 milésimas de oro puro:
+              <br />
+              <span style={{color: COLORS.goldLight}}>la firma del oro 18K.</span>
+            </Body>
+          </Reveal>
+          <Reveal at={STAMP_AT + 40} rise={80} style={{marginTop: 50}}>
+            <ProductCard
+              src="products/argollas_bicolor.jpg"
+              caption="Argolla bi color · Oro 18kt"
+              width={500}
+              height={420}
+              zoom={interpolate(frame, [STAMP_AT + 40, 200], [1.08, 1.2], clamp)}
+              style={{rotate: `${Math.sin(frame / 20) * 1.5}deg`}}
+            />
+          </Reveal>
+        </AbsoluteFill>
       </AbsoluteFill>
     </SceneShell>
   );
