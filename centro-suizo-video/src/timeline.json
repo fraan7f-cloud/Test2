@@ -1,0 +1,16 @@
+{
+  "fps": 30,
+  "intro": 75,
+  "scenes": [
+    {"id": "hook", "start": 0, "end": 7.7},
+    {"id": "round", "start": 7.7, "end": 17.15, "reveal": 8.9},
+    {"id": "oval", "start": 17.15, "end": 24.0, "reveal": 18.44},
+    {"id": "pear", "start": 24.0, "end": 29.45, "reveal": 25.34},
+    {"id": "emerald", "start": 29.45, "end": 35.85, "reveal": 30.5},
+    {"id": "marquise", "start": 35.85, "end": 40.95, "reveal": 37.04},
+    {"id": "cushion", "start": 40.95, "end": 49.75, "reveal": 42.16},
+    {"id": "cta", "start": 49.75, "end": 56.0}
+  ],
+  "outroStart": 56.0,
+  "outroParts": [150, 150, 105]
+}
