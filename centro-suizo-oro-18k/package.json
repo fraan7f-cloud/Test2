@@ -1,0 +1,23 @@
+{
+  "name": "centro-suizo-oro-18k",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Video publicitario de 50 s para Joyería Centro Suizo: ¿Qué significa 18K?",
+  "scripts": {
+    "studio": "remotion studio",
+    "audio": "python3 scripts/generate_audio.py",
+    "render": "remotion render CentroSuizo18K Renders/centro-suizo-oro-18k.mp4 --browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.547",
+    "@remotion/fonts": "^4.0.547",
+    "@remotion/media": "^4.0.547",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.547"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.1",
+    "typescript": "^7.0.2"
+  }
+}

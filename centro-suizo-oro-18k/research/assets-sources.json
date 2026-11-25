@@ -1,0 +1,50 @@
+{
+  "logo_negro_sobre_negro.jpg": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/logo_centro.jpg",
+    "descripcion": "Logo blanco sobre negro (favicon / redes)"
+  },
+  "logo_completo.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/logo_blanco.avif",
+    "descripcion": "Logo completo con 'Desde 1979 · Joyas' (header del sitio)"
+  },
+  "argollas_bicolor.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/c07573_c75c0051795d4cfea1c157d00f4a47ae_mv2.png",
+    "descripcion": "Argolla bi color oro blanco y amarillo 18kt"
+  },
+  "argollas_media_cana.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/c07573_440698da35ec4d6aaf117191e01d9430_mv2_1200x.png",
+    "descripcion": "Argollas de matrimonio 18kt"
+  },
+  "argollas_tallado.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/c07573_4925e414264b44bbaca6cabdd7ae8ef8_mv2_1200x.png",
+    "descripcion": "Argollas tallado 18kt"
+  },
+  "argollas_circon.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/c07573_8b93c54953784d1aa617f55641fb39bc_mv2_1200x.png",
+    "descripcion": "Argollas con circón 18kt"
+  },
+  "argollas_triple_circon.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/c07573_e63c31cc04db43caa8ff8effa68da905_mv2_1200x.png",
+    "descripcion": "Argollas con circones 18kt"
+  },
+  "aros_bolita.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/c07573_3aefdff95ccd4aefb48eca3230ae5e7e_mv2_1200x.png",
+    "descripcion": "Aros bolita 18kt"
+  },
+  "aros_perla.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/c07573_1ec532aebb9246eda535d8ef29f70ba7_mv2_1200x.png",
+    "descripcion": "Aros perla cultivada 18kt"
+  },
+  "cadena_bolitas.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/c07573_cf4b39bd0adc418bb8d1229cec7e0169_mv2.png",
+    "descripcion": "Cadena bolitas 18kt"
+  },
+  "campana_pulseras.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/CENTRO_SUIZO_2.png",
+    "descripcion": "Pieza de campaña 'Pulseras · Detalles únicos en oro'"
+  },
+  "campana_se_sienten.png": {
+    "url": "https://joyeriacentrosuizo.cl/cdn/shop/files/3_437f65e6-f000-4c03-9a54-092358ac4fa6.png",
+    "descripcion": "Pieza de campaña 'Hay decisiones que no se explican. Se sienten!'"
+  }
+}
