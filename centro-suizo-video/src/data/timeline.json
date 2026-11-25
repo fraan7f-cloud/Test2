@@ -1,0 +1,1687 @@
+{
+ "fps": 30,
+ "total": 59.87,
+ "intro": 3.2,
+ "ctaStart": 48.75,
+ "ctaEnd": 55.52,
+ "outroStart": 55.87,
+ "scenes": [
+  {
+   "id": "intro",
+   "start": 0.0,
+   "end": 3.2
+  },
+  {
+   "id": "estuche",
+   "start": 3.2,
+   "end": 7.07
+  },
+  {
+   "id": "tamano",
+   "start": 7.07,
+   "end": 13.57
+  },
+  {
+   "id": "luz",
+   "start": 13.57,
+   "end": 19.65
+  },
+  {
+   "id": "dinero",
+   "start": 19.65,
+   "end": 22.18
+  },
+  {
+   "id": "color",
+   "start": 22.18,
+   "end": 27.94
+  },
+  {
+   "id": "pureza",
+   "start": 27.94,
+   "end": 33.38
+  },
+  {
+   "id": "truco",
+   "start": 33.38,
+   "end": 40.29
+  },
+  {
+   "id": "talla",
+   "start": 40.29,
+   "end": 44.99
+  },
+  {
+   "id": "brilla",
+   "start": 44.99,
+   "end": 48.5
+  },
+  {
+   "id": "cta",
+   "start": 48.5,
+   "end": 52.96
+  },
+  {
+   "id": "historia",
+   "start": 52.96,
+   "end": 55.87
+  },
+  {
+   "id": "outro",
+   "start": 55.87,
+   "end": 59.87
+  }
+ ],
+ "sfx": [
+  {
+   "kind": "riser",
+   "t": 0.05
+  },
+  {
+   "kind": "impact",
+   "t": 1.6
+  },
+  {
+   "kind": "sparkle",
+   "t": 1.62
+  },
+  {
+   "kind": "whoosh",
+   "t": 2.78
+  },
+  {
+   "kind": "whoosh",
+   "t": 6.85
+  },
+  {
+   "kind": "whoosh",
+   "t": 13.35
+  },
+  {
+   "kind": "whoosh",
+   "t": 19.43
+  },
+  {
+   "kind": "whoosh",
+   "t": 21.96
+  },
+  {
+   "kind": "whoosh",
+   "t": 27.72
+  },
+  {
+   "kind": "whoosh",
+   "t": 33.16
+  },
+  {
+   "kind": "whoosh",
+   "t": 40.07
+  },
+  {
+   "kind": "whoosh",
+   "t": 44.77
+  },
+  {
+   "kind": "whoosh",
+   "t": 48.28
+  },
+  {
+   "kind": "whoosh",
+   "t": 52.74
+  },
+  {
+   "kind": "whoosh",
+   "t": 55.65
+  },
+  {
+   "kind": "sparkle",
+   "t": 5.201
+  },
+  {
+   "kind": "pop",
+   "t": 6.706
+  },
+  {
+   "kind": "ting",
+   "t": 8.627
+  },
+  {
+   "kind": "buzz",
+   "t": 11.141
+  },
+  {
+   "kind": "impact",
+   "t": 12.792
+  },
+  {
+   "kind": "sparkle",
+   "t": 12.842
+  },
+  {
+   "kind": "ting",
+   "t": 14.734
+  },
+  {
+   "kind": "sparkle",
+   "t": 17.185
+  },
+  {
+   "kind": "buzz",
+   "t": 18.273
+  },
+  {
+   "kind": "coin",
+   "t": 20.442
+  },
+  {
+   "kind": "coin",
+   "t": 20.522
+  },
+  {
+   "kind": "coin",
+   "t": 20.624
+  },
+  {
+   "kind": "coin",
+   "t": 20.701
+  },
+  {
+   "kind": "coin",
+   "t": 20.765
+  },
+  {
+   "kind": "coin",
+   "t": 20.825
+  },
+  {
+   "kind": "coin",
+   "t": 20.95
+  },
+  {
+   "kind": "coin",
+   "t": 20.985
+  },
+  {
+   "kind": "coin",
+   "t": 21.088
+  },
+  {
+   "kind": "coin",
+   "t": 21.177
+  },
+  {
+   "kind": "coin",
+   "t": 21.26
+  },
+  {
+   "kind": "coin",
+   "t": 21.335
+  },
+  {
+   "kind": "coin",
+   "t": 21.401
+  },
+  {
+   "kind": "coin",
+   "t": 21.492
+  },
+  {
+   "kind": "coin",
+   "t": 21.687
+  },
+  {
+   "kind": "coin",
+   "t": 21.757
+  },
+  {
+   "kind": "coin",
+   "t": 21.827
+  },
+  {
+   "kind": "coin",
+   "t": 21.897
+  },
+  {
+   "kind": "coin",
+   "t": 21.967
+  },
+  {
+   "kind": "coin",
+   "t": 22.037
+  },
+  {
+   "kind": "pop",
+   "t": 22.748
+  },
+  {
+   "kind": "coin",
+   "t": 23.344
+  },
+  {
+   "kind": "pop",
+   "t": 24.926
+  },
+  {
+   "kind": "sparkle",
+   "t": 27.324
+  },
+  {
+   "kind": "ting",
+   "t": 28.519
+  },
+  {
+   "kind": "sparkle",
+   "t": 30.928
+  },
+  {
+   "kind": "whoosh",
+   "t": 32.704
+  },
+  {
+   "kind": "sparkle",
+   "t": 33.885
+  },
+  {
+   "kind": "pop",
+   "t": 34.954
+  },
+  {
+   "kind": "pop",
+   "t": 37.675
+  },
+  {
+   "kind": "coin",
+   "t": 39.705
+  },
+  {
+   "kind": "pop",
+   "t": 40.711
+  },
+  {
+   "kind": "tick",
+   "t": 44.227
+  },
+  {
+   "kind": "tick",
+   "t": 44.287
+  },
+  {
+   "kind": "tick",
+   "t": 44.347
+  },
+  {
+   "kind": "tick",
+   "t": 44.407
+  },
+  {
+   "kind": "tick",
+   "t": 44.467
+  },
+  {
+   "kind": "tick",
+   "t": 44.527
+  },
+  {
+   "kind": "tick",
+   "t": 44.587
+  },
+  {
+   "kind": "tick",
+   "t": 44.647
+  },
+  {
+   "kind": "tick",
+   "t": 44.707
+  },
+  {
+   "kind": "tick",
+   "t": 44.767
+  },
+  {
+   "kind": "ting",
+   "t": 44.89
+  },
+  {
+   "kind": "sparkle",
+   "t": 46.072
+  },
+  {
+   "kind": "crumple",
+   "t": 47.802
+  },
+  {
+   "kind": "pop",
+   "t": 49.49
+  },
+  {
+   "kind": "sparkle",
+   "t": 51.106
+  },
+  {
+   "kind": "whoosh",
+   "t": 52.625
+  },
+  {
+   "kind": "notify",
+   "t": 53.12
+  },
+  {
+   "kind": "impact",
+   "t": 53.11
+  },
+  {
+   "kind": "sparkle",
+   "t": 53.16
+  },
+  {
+   "kind": "sparkle",
+   "t": 55.031
+  },
+  {
+   "kind": "impact",
+   "t": 55.87
+  },
+  {
+   "kind": "sparkle",
+   "t": 55.92
+  }
+ ],
+ "words": [
+  {
+   "text": "Así",
+   "emph": false,
+   "start": 3.32,
+   "end": 3.579,
+   "seg": 0,
+   "chunk": 0
+  },
+  {
+   "text": "se",
+   "emph": false,
+   "start": 3.579,
+   "end": 3.717,
+   "seg": 0,
+   "chunk": 0
+  },
+  {
+   "text": "elige",
+   "emph": false,
+   "start": 3.717,
+   "end": 4.096,
+   "seg": 0,
+   "chunk": 0
+  },
+  {
+   "text": "el",
+   "emph": false,
+   "start": 4.096,
+   "end": 4.235,
+   "seg": 0,
+   "chunk": 0
+  },
+  {
+   "text": "anillo",
+   "emph": false,
+   "start": 4.235,
+   "end": 4.614,
+   "seg": 0,
+   "chunk": 1
+  },
+  {
+   "text": "de",
+   "emph": false,
+   "start": 4.614,
+   "end": 4.752,
+   "seg": 0,
+   "chunk": 1
+  },
+  {
+   "text": "compromiso",
+   "emph": false,
+   "start": 4.752,
+   "end": 5.251,
+   "seg": 0,
+   "chunk": 1
+  },
+  {
+   "text": "ideal,",
+   "emph": true,
+   "start": 5.251,
+   "end": 5.51,
+   "seg": 0,
+   "chunk": 2
+  },
+  {
+   "text": "sin",
+   "emph": false,
+   "start": 5.76,
+   "end": 6.004,
+   "seg": 1,
+   "chunk": 3
+  },
+  {
+   "text": "pagar",
+   "emph": false,
+   "start": 6.004,
+   "end": 6.461,
+   "seg": 1,
+   "chunk": 3
+  },
+  {
+   "text": "de",
+   "emph": false,
+   "start": 6.461,
+   "end": 6.706,
+   "seg": 1,
+   "chunk": 3
+  },
+  {
+   "text": "más.",
+   "emph": true,
+   "start": 6.706,
+   "end": 6.95,
+   "seg": 1,
+   "chunk": 3
+  },
+  {
+   "text": "Casi",
+   "emph": false,
+   "start": 7.32,
+   "end": 7.604,
+   "seg": 2,
+   "chunk": 4
+  },
+  {
+   "text": "todos",
+   "emph": false,
+   "start": 7.604,
+   "end": 7.888,
+   "seg": 2,
+   "chunk": 4
+  },
+  {
+   "text": "se",
+   "emph": false,
+   "start": 7.888,
+   "end": 8.039,
+   "seg": 2,
+   "chunk": 4
+  },
+  {
+   "text": "fijan",
+   "emph": false,
+   "start": 8.039,
+   "end": 8.323,
+   "seg": 2,
+   "chunk": 4
+  },
+  {
+   "text": "en",
+   "emph": false,
+   "start": 8.323,
+   "end": 8.475,
+   "seg": 2,
+   "chunk": 5
+  },
+  {
+   "text": "el",
+   "emph": false,
+   "start": 8.475,
+   "end": 8.627,
+   "seg": 2,
+   "chunk": 5
+  },
+  {
+   "text": "tamaño",
+   "emph": true,
+   "start": 8.627,
+   "end": 9.042,
+   "seg": 2,
+   "chunk": 5
+  },
+  {
+   "text": "del",
+   "emph": false,
+   "start": 9.042,
+   "end": 9.194,
+   "seg": 2,
+   "chunk": 5
+  },
+  {
+   "text": "diamante,",
+   "emph": false,
+   "start": 9.194,
+   "end": 9.61,
+   "seg": 2,
+   "chunk": 6
+  },
+  {
+   "text": "pero",
+   "emph": false,
+   "start": 9.92,
+   "end": 10.231,
+   "seg": 3,
+   "chunk": 7
+  },
+  {
+   "text": "lo",
+   "emph": false,
+   "start": 10.231,
+   "end": 10.397,
+   "seg": 3,
+   "chunk": 7
+  },
+  {
+   "text": "que",
+   "emph": false,
+   "start": 10.397,
+   "end": 10.564,
+   "seg": 3,
+   "chunk": 7
+  },
+  {
+   "text": "lo",
+   "emph": false,
+   "start": 10.564,
+   "end": 10.73,
+   "seg": 3,
+   "chunk": 7
+  },
+  {
+   "text": "hace",
+   "emph": false,
+   "start": 10.73,
+   "end": 11.041,
+   "seg": 3,
+   "chunk": 8
+  },
+  {
+   "text": "brillar",
+   "emph": true,
+   "start": 11.041,
+   "end": 11.352,
+   "seg": 3,
+   "chunk": 8
+  },
+  {
+   "text": "es",
+   "emph": false,
+   "start": 11.352,
+   "end": 11.518,
+   "seg": 3,
+   "chunk": 8
+  },
+  {
+   "text": "otra",
+   "emph": false,
+   "start": 11.518,
+   "end": 11.829,
+   "seg": 3,
+   "chunk": 8
+  },
+  {
+   "text": "cosa:",
+   "emph": false,
+   "start": 11.829,
+   "end": 12.14,
+   "seg": 3,
+   "chunk": 9
+  },
+  {
+   "text": "el",
+   "emph": false,
+   "start": 12.57,
+   "end": 12.842,
+   "seg": 4,
+   "chunk": 10
+  },
+  {
+   "text": "corte.",
+   "emph": true,
+   "start": 12.842,
+   "end": 13.35,
+   "seg": 4,
+   "chunk": 10
+  },
+  {
+   "text": "Bien",
+   "emph": false,
+   "start": 13.82,
+   "end": 14.005,
+   "seg": 5,
+   "chunk": 11
+  },
+  {
+   "text": "cortado,",
+   "emph": false,
+   "start": 14.005,
+   "end": 14.51,
+   "seg": 5,
+   "chunk": 11
+  },
+  {
+   "text": "la",
+   "emph": false,
+   "start": 14.56,
+   "end": 14.734,
+   "seg": 5,
+   "chunk": 12
+  },
+  {
+   "text": "luz",
+   "emph": true,
+   "start": 14.734,
+   "end": 14.908,
+   "seg": 5,
+   "chunk": 12
+  },
+  {
+   "text": "rebota",
+   "emph": false,
+   "start": 14.908,
+   "end": 15.384,
+   "seg": 5,
+   "chunk": 12
+  },
+  {
+   "text": "adentro",
+   "emph": false,
+   "start": 15.384,
+   "end": 15.861,
+   "seg": 5,
+   "chunk": 12
+  },
+  {
+   "text": "y",
+   "emph": false,
+   "start": 15.861,
+   "end": 16.035,
+   "seg": 5,
+   "chunk": 13
+  },
+  {
+   "text": "sale",
+   "emph": false,
+   "start": 16.035,
+   "end": 16.36,
+   "seg": 5,
+   "chunk": 13
+  },
+  {
+   "text": "directo",
+   "emph": false,
+   "start": 16.36,
+   "end": 16.837,
+   "seg": 5,
+   "chunk": 13
+  },
+  {
+   "text": "a",
+   "emph": false,
+   "start": 16.837,
+   "end": 17.011,
+   "seg": 5,
+   "chunk": 13
+  },
+  {
+   "text": "tus",
+   "emph": false,
+   "start": 17.011,
+   "end": 17.185,
+   "seg": 5,
+   "chunk": 14
+  },
+  {
+   "text": "ojos.",
+   "emph": true,
+   "start": 17.185,
+   "end": 17.51,
+   "seg": 5,
+   "chunk": 14
+  },
+  {
+   "text": "Mal",
+   "emph": false,
+   "start": 17.72,
+   "end": 17.811,
+   "seg": 6,
+   "chunk": 15
+  },
+  {
+   "text": "cortado,",
+   "emph": false,
+   "start": 17.811,
+   "end": 18.06,
+   "seg": 6,
+   "chunk": 15
+  },
+  {
+   "text": "se",
+   "emph": false,
+   "start": 18.09,
+   "end": 18.273,
+   "seg": 6,
+   "chunk": 16
+  },
+  {
+   "text": "escapa",
+   "emph": true,
+   "start": 18.273,
+   "end": 18.775,
+   "seg": 6,
+   "chunk": 16
+  },
+  {
+   "text": "por",
+   "emph": false,
+   "start": 18.775,
+   "end": 18.958,
+   "seg": 6,
+   "chunk": 16
+  },
+  {
+   "text": "abajo.",
+   "emph": false,
+   "start": 18.958,
+   "end": 19.46,
+   "seg": 6,
+   "chunk": 16
+  },
+  {
+   "text": "Así",
+   "emph": false,
+   "start": 19.9,
+   "end": 20.152,
+   "seg": 7,
+   "chunk": 17
+  },
+  {
+   "text": "que",
+   "emph": false,
+   "start": 20.152,
+   "end": 20.286,
+   "seg": 7,
+   "chunk": 17
+  },
+  {
+   "text": "el",
+   "emph": false,
+   "start": 20.286,
+   "end": 20.421,
+   "seg": 7,
+   "chunk": 17
+  },
+  {
+   "text": "dinero,",
+   "emph": true,
+   "start": 20.421,
+   "end": 20.79,
+   "seg": 7,
+   "chunk": 17
+  },
+  {
+   "text": "primero",
+   "emph": false,
+   "start": 20.82,
+   "end": 21.455,
+   "seg": 7,
+   "chunk": 18
+  },
+  {
+   "text": "al",
+   "emph": false,
+   "start": 21.455,
+   "end": 21.687,
+   "seg": 7,
+   "chunk": 18
+  },
+  {
+   "text": "corte.",
+   "emph": true,
+   "start": 21.687,
+   "end": 22.12,
+   "seg": 7,
+   "chunk": 18
+  },
+  {
+   "text": "En",
+   "emph": false,
+   "start": 22.43,
+   "end": 22.589,
+   "seg": 8,
+   "chunk": 19
+  },
+  {
+   "text": "el",
+   "emph": false,
+   "start": 22.589,
+   "end": 22.748,
+   "seg": 8,
+   "chunk": 19
+  },
+  {
+   "text": "color",
+   "emph": true,
+   "start": 22.748,
+   "end": 23.046,
+   "seg": 8,
+   "chunk": 19
+  },
+  {
+   "text": "puedes",
+   "emph": false,
+   "start": 23.046,
+   "end": 23.344,
+   "seg": 8,
+   "chunk": 19
+  },
+  {
+   "text": "ahorrar:",
+   "emph": true,
+   "start": 23.344,
+   "end": 23.78,
+   "seg": 8,
+   "chunk": 20
+  },
+  {
+   "text": "un",
+   "emph": false,
+   "start": 24.03,
+   "end": 24.19,
+   "seg": 9,
+   "chunk": 21
+  },
+  {
+   "text": "tono",
+   "emph": false,
+   "start": 24.19,
+   "end": 24.488,
+   "seg": 9,
+   "chunk": 21
+  },
+  {
+   "text": "apenas",
+   "emph": false,
+   "start": 24.488,
+   "end": 24.926,
+   "seg": 9,
+   "chunk": 21
+  },
+  {
+   "text": "cálido",
+   "emph": true,
+   "start": 24.926,
+   "end": 25.363,
+   "seg": 9,
+   "chunk": 21
+  },
+  {
+   "text": "casi",
+   "emph": false,
+   "start": 25.363,
+   "end": 25.662,
+   "seg": 9,
+   "chunk": 22
+  },
+  {
+   "text": "no",
+   "emph": false,
+   "start": 25.662,
+   "end": 25.822,
+   "seg": 9,
+   "chunk": 22
+  },
+  {
+   "text": "se",
+   "emph": false,
+   "start": 25.822,
+   "end": 25.981,
+   "seg": 9,
+   "chunk": 22
+  },
+  {
+   "text": "nota,",
+   "emph": false,
+   "start": 25.981,
+   "end": 26.28,
+   "seg": 9,
+   "chunk": 22
+  },
+  {
+   "text": "sobre",
+   "emph": false,
+   "start": 26.49,
+   "end": 26.726,
+   "seg": 10,
+   "chunk": 23
+  },
+  {
+   "text": "todo",
+   "emph": false,
+   "start": 26.726,
+   "end": 26.962,
+   "seg": 10,
+   "chunk": 23
+  },
+  {
+   "text": "en",
+   "emph": false,
+   "start": 26.962,
+   "end": 27.088,
+   "seg": 10,
+   "chunk": 23
+  },
+  {
+   "text": "oro",
+   "emph": false,
+   "start": 27.088,
+   "end": 27.324,
+   "seg": 10,
+   "chunk": 23
+  },
+  {
+   "text": "amarillo.",
+   "emph": true,
+   "start": 27.324,
+   "end": 27.78,
+   "seg": 10,
+   "chunk": 24
+  },
+  {
+   "text": "En",
+   "emph": false,
+   "start": 28.19,
+   "end": 28.355,
+   "seg": 11,
+   "chunk": 25
+  },
+  {
+   "text": "la",
+   "emph": false,
+   "start": 28.355,
+   "end": 28.519,
+   "seg": 11,
+   "chunk": 25
+  },
+  {
+   "text": "pureza,",
+   "emph": true,
+   "start": 28.519,
+   "end": 28.97,
+   "seg": 11,
+   "chunk": 25
+  },
+  {
+   "text": "igual:",
+   "emph": false,
+   "start": 29.08,
+   "end": 29.45,
+   "seg": 12,
+   "chunk": 26
+  },
+  {
+   "text": "si",
+   "emph": false,
+   "start": 29.76,
+   "end": 29.911,
+   "seg": 13,
+   "chunk": 27
+  },
+  {
+   "text": "a",
+   "emph": false,
+   "start": 29.911,
+   "end": 30.062,
+   "seg": 13,
+   "chunk": 27
+  },
+  {
+   "text": "simple",
+   "emph": false,
+   "start": 30.062,
+   "end": 30.344,
+   "seg": 13,
+   "chunk": 27
+  },
+  {
+   "text": "vista",
+   "emph": false,
+   "start": 30.344,
+   "end": 30.626,
+   "seg": 13,
+   "chunk": 27
+  },
+  {
+   "text": "se",
+   "emph": false,
+   "start": 30.626,
+   "end": 30.777,
+   "seg": 13,
+   "chunk": 28
+  },
+  {
+   "text": "ve",
+   "emph": false,
+   "start": 30.777,
+   "end": 30.928,
+   "seg": 13,
+   "chunk": 28
+  },
+  {
+   "text": "limpio,",
+   "emph": true,
+   "start": 30.928,
+   "end": 31.21,
+   "seg": 13,
+   "chunk": 28
+  },
+  {
+   "text": "no",
+   "emph": false,
+   "start": 31.22,
+   "end": 31.383,
+   "seg": 13,
+   "chunk": 29
+  },
+  {
+   "text": "pagues",
+   "emph": false,
+   "start": 31.383,
+   "end": 31.689,
+   "seg": 13,
+   "chunk": 29
+  },
+  {
+   "text": "por",
+   "emph": false,
+   "start": 31.689,
+   "end": 31.853,
+   "seg": 13,
+   "chunk": 29
+  },
+  {
+   "text": "lo",
+   "emph": false,
+   "start": 31.853,
+   "end": 32.016,
+   "seg": 13,
+   "chunk": 29
+  },
+  {
+   "text": "que",
+   "emph": false,
+   "start": 32.016,
+   "end": 32.18,
+   "seg": 13,
+   "chunk": 30
+  },
+  {
+   "text": "solo",
+   "emph": false,
+   "start": 32.18,
+   "end": 32.485,
+   "seg": 13,
+   "chunk": 30
+  },
+  {
+   "text": "ve",
+   "emph": false,
+   "start": 32.485,
+   "end": 32.649,
+   "seg": 13,
+   "chunk": 30
+  },
+  {
+   "text": "una",
+   "emph": false,
+   "start": 32.649,
+   "end": 32.954,
+   "seg": 13,
+   "chunk": 30
+  },
+  {
+   "text": "lupa.",
+   "emph": true,
+   "start": 32.954,
+   "end": 33.26,
+   "seg": 13,
+   "chunk": 31
+  },
+  {
+   "text": "Y",
+   "emph": false,
+   "start": 33.63,
+   "end": 33.782,
+   "seg": 14,
+   "chunk": 32
+  },
+  {
+   "text": "un",
+   "emph": false,
+   "start": 33.782,
+   "end": 33.935,
+   "seg": 14,
+   "chunk": 32
+  },
+  {
+   "text": "truco:",
+   "emph": true,
+   "start": 33.935,
+   "end": 34.22,
+   "seg": 14,
+   "chunk": 32
+  },
+  {
+   "text": "uno",
+   "emph": false,
+   "start": 34.49,
+   "end": 34.792,
+   "seg": 15,
+   "chunk": 33
+  },
+  {
+   "text": "de",
+   "emph": false,
+   "start": 34.792,
+   "end": 34.954,
+   "seg": 15,
+   "chunk": 33
+  },
+  {
+   "text": "0,90",
+   "emph": true,
+   "start": 34.954,
+   "end": 35.678,
+   "seg": 15,
+   "chunk": 33
+  },
+  {
+   "text": "quilates",
+   "emph": false,
+   "start": 35.678,
+   "end": 36.121,
+   "seg": 15,
+   "chunk": 33
+  },
+  {
+   "text": "se",
+   "emph": false,
+   "start": 36.121,
+   "end": 36.283,
+   "seg": 15,
+   "chunk": 34
+  },
+  {
+   "text": "ve",
+   "emph": false,
+   "start": 36.283,
+   "end": 36.445,
+   "seg": 15,
+   "chunk": 34
+  },
+  {
+   "text": "casi",
+   "emph": false,
+   "start": 36.445,
+   "end": 36.747,
+   "seg": 15,
+   "chunk": 34
+  },
+  {
+   "text": "igual",
+   "emph": false,
+   "start": 36.747,
+   "end": 37.049,
+   "seg": 15,
+   "chunk": 34
+  },
+  {
+   "text": "que",
+   "emph": false,
+   "start": 37.049,
+   "end": 37.211,
+   "seg": 15,
+   "chunk": 35
+  },
+  {
+   "text": "uno",
+   "emph": false,
+   "start": 37.211,
+   "end": 37.514,
+   "seg": 15,
+   "chunk": 35
+  },
+  {
+   "text": "de",
+   "emph": false,
+   "start": 37.514,
+   "end": 37.675,
+   "seg": 15,
+   "chunk": 35
+  },
+  {
+   "text": "1",
+   "emph": true,
+   "start": 37.675,
+   "end": 37.837,
+   "seg": 15,
+   "chunk": 35
+  },
+  {
+   "text": "quilate,",
+   "emph": false,
+   "start": 37.837,
+   "end": 38.28,
+   "seg": 15,
+   "chunk": 36
+  },
+  {
+   "text": "y",
+   "emph": false,
+   "start": 38.52,
+   "end": 38.731,
+   "seg": 16,
+   "chunk": 37
+  },
+  {
+   "text": "cuesta",
+   "emph": false,
+   "start": 38.731,
+   "end": 39.126,
+   "seg": 16,
+   "chunk": 37
+  },
+  {
+   "text": "bastante",
+   "emph": false,
+   "start": 39.126,
+   "end": 39.705,
+   "seg": 16,
+   "chunk": 37
+  },
+  {
+   "text": "menos.",
+   "emph": true,
+   "start": 39.705,
+   "end": 40.1,
+   "seg": 16,
+   "chunk": 38
+  },
+  {
+   "text": "¿Su",
+   "emph": false,
+   "start": 40.54,
+   "end": 40.711,
+   "seg": 17,
+   "chunk": 39
+  },
+  {
+   "text": "talla?",
+   "emph": true,
+   "start": 40.711,
+   "end": 41.03,
+   "seg": 17,
+   "chunk": 39
+  },
+  {
+   "text": "Toma",
+   "emph": false,
+   "start": 41.4,
+   "end": 41.663,
+   "seg": 18,
+   "chunk": 40
+  },
+  {
+   "text": "a",
+   "emph": false,
+   "start": 41.663,
+   "end": 41.804,
+   "seg": 18,
+   "chunk": 40
+  },
+  {
+   "text": "escondidas",
+   "emph": true,
+   "start": 41.804,
+   "end": 42.312,
+   "seg": 18,
+   "chunk": 40
+  },
+  {
+   "text": "un",
+   "emph": false,
+   "start": 42.312,
+   "end": 42.453,
+   "seg": 18,
+   "chunk": 40
+  },
+  {
+   "text": "anillo",
+   "emph": false,
+   "start": 42.453,
+   "end": 42.838,
+   "seg": 18,
+   "chunk": 41
+  },
+  {
+   "text": "que",
+   "emph": false,
+   "start": 42.838,
+   "end": 42.979,
+   "seg": 18,
+   "chunk": 41
+  },
+  {
+   "text": "use",
+   "emph": false,
+   "start": 42.979,
+   "end": 43.242,
+   "seg": 18,
+   "chunk": 41
+  },
+  {
+   "text": "en",
+   "emph": false,
+   "start": 43.242,
+   "end": 43.383,
+   "seg": 18,
+   "chunk": 41
+  },
+  {
+   "text": "ese",
+   "emph": false,
+   "start": 43.383,
+   "end": 43.646,
+   "seg": 18,
+   "chunk": 42
+  },
+  {
+   "text": "dedo",
+   "emph": false,
+   "start": 43.646,
+   "end": 43.91,
+   "seg": 18,
+   "chunk": 42
+  },
+  {
+   "text": "y",
+   "emph": false,
+   "start": 43.91,
+   "end": 44.05,
+   "seg": 18,
+   "chunk": 42
+  },
+  {
+   "text": "mídelo",
+   "emph": false,
+   "start": 44.05,
+   "end": 44.436,
+   "seg": 18,
+   "chunk": 42
+  },
+  {
+   "text": "por",
+   "emph": false,
+   "start": 44.436,
+   "end": 44.577,
+   "seg": 18,
+   "chunk": 43
+  },
+  {
+   "text": "dentro.",
+   "emph": true,
+   "start": 44.577,
+   "end": 44.84,
+   "seg": 18,
+   "chunk": 43
+  },
+  {
+   "text": "Así,",
+   "emph": false,
+   "start": 45.24,
+   "end": 45.68,
+   "seg": 19,
+   "chunk": 44
+  },
+  {
+   "text": "lo",
+   "emph": false,
+   "start": 45.71,
+   "end": 45.891,
+   "seg": 19,
+   "chunk": 45
+  },
+  {
+   "text": "que",
+   "emph": false,
+   "start": 45.891,
+   "end": 46.072,
+   "seg": 19,
+   "chunk": 45
+  },
+  {
+   "text": "brilla",
+   "emph": true,
+   "start": 46.072,
+   "end": 46.411,
+   "seg": 19,
+   "chunk": 45
+  },
+  {
+   "text": "es",
+   "emph": false,
+   "start": 46.411,
+   "end": 46.592,
+   "seg": 19,
+   "chunk": 45
+  },
+  {
+   "text": "el",
+   "emph": false,
+   "start": 46.592,
+   "end": 46.774,
+   "seg": 19,
+   "chunk": 46
+  },
+  {
+   "text": "anillo,",
+   "emph": true,
+   "start": 46.774,
+   "end": 47.27,
+   "seg": 19,
+   "chunk": 46
+  },
+  {
+   "text": "no",
+   "emph": false,
+   "start": 47.48,
+   "end": 47.666,
+   "seg": 20,
+   "chunk": 47
+  },
+  {
+   "text": "la",
+   "emph": false,
+   "start": 47.666,
+   "end": 47.852,
+   "seg": 20,
+   "chunk": 47
+  },
+  {
+   "text": "cuenta.",
+   "emph": true,
+   "start": 47.852,
+   "end": 48.2,
+   "seg": 20,
+   "chunk": 47
+  },
+  {
+   "text": "Si",
+   "emph": false,
+   "start": 48.75,
+   "end": 48.906,
+   "seg": 21,
+   "chunk": 48
+  },
+  {
+   "text": "conoces",
+   "emph": false,
+   "start": 48.906,
+   "end": 49.334,
+   "seg": 21,
+   "chunk": 48
+  },
+  {
+   "text": "a",
+   "emph": false,
+   "start": 49.334,
+   "end": 49.49,
+   "seg": 21,
+   "chunk": 48
+  },
+  {
+   "text": "alguien",
+   "emph": false,
+   "start": 49.49,
+   "end": 49.782,
+   "seg": 21,
+   "chunk": 48
+  },
+  {
+   "text": "que",
+   "emph": false,
+   "start": 49.782,
+   "end": 49.938,
+   "seg": 21,
+   "chunk": 49
+  },
+  {
+   "text": "está",
+   "emph": false,
+   "start": 49.938,
+   "end": 50.23,
+   "seg": 21,
+   "chunk": 49
+  },
+  {
+   "text": "pensando",
+   "emph": false,
+   "start": 50.23,
+   "end": 50.658,
+   "seg": 21,
+   "chunk": 49
+  },
+  {
+   "text": "en",
+   "emph": false,
+   "start": 50.658,
+   "end": 50.814,
+   "seg": 21,
+   "chunk": 49
+  },
+  {
+   "text": "pedir",
+   "emph": false,
+   "start": 50.814,
+   "end": 51.106,
+   "seg": 21,
+   "chunk": 50
+  },
+  {
+   "text": "matrimonio,",
+   "emph": true,
+   "start": 51.106,
+   "end": 51.67,
+   "seg": 21,
+   "chunk": 50
+  },
+  {
+   "text": "mándale",
+   "emph": false,
+   "start": 51.75,
+   "end": 52.329,
+   "seg": 21,
+   "chunk": 51
+  },
+  {
+   "text": "este",
+   "emph": false,
+   "start": 52.329,
+   "end": 52.725,
+   "seg": 21,
+   "chunk": 51
+  },
+  {
+   "text": "video.",
+   "emph": true,
+   "start": 52.725,
+   "end": 53.12,
+   "seg": 21,
+   "chunk": 51
+  },
+  {
+   "text": "¡Centro",
+   "emph": true,
+   "start": 53.16,
+   "end": 53.494,
+   "seg": 22,
+   "chunk": 52
+  },
+  {
+   "text": "Suizo",
+   "emph": true,
+   "start": 53.494,
+   "end": 53.828,
+   "seg": 22,
+   "chunk": 52
+  },
+  {
+   "text": "podría",
+   "emph": false,
+   "start": 53.828,
+   "end": 54.161,
+   "seg": 22,
+   "chunk": 52
+  },
+  {
+   "text": "ser",
+   "emph": false,
+   "start": 54.161,
+   "end": 54.34,
+   "seg": 22,
+   "chunk": 53
+  },
+  {
+   "text": "parte",
+   "emph": false,
+   "start": 54.34,
+   "end": 54.674,
+   "seg": 22,
+   "chunk": 53
+  },
+  {
+   "text": "de",
+   "emph": false,
+   "start": 54.674,
+   "end": 54.852,
+   "seg": 22,
+   "chunk": 53
+  },
+  {
+   "text": "su",
+   "emph": false,
+   "start": 54.852,
+   "end": 55.031,
+   "seg": 22,
+   "chunk": 53
+  },
+  {
+   "text": "historia!",
+   "emph": true,
+   "start": 55.031,
+   "end": 55.52,
+   "seg": 22,
+   "chunk": 54
+  }
+ ]
+}
