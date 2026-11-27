@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <clipPath id="badge"><rect x="72" y="72" width="880" height="880" rx="120"/></clipPath>
+  </defs>
+
+  <!-- Badge -->
+  <rect x="72" y="72" width="880" height="880" rx="120" fill="#FFFFFF"/>
+  <g clip-path="url(#badge)">
+    <!-- Store stripes -->
+    <rect x="0" y="500" width="1024" height="44" fill="#FFC20E"/>
+    <rect x="0" y="544" width="1024" height="44" fill="#E3262E"/>
+    <rect x="0" y="588" width="1024" height="44" fill="#1B2A4A"/>
+  </g>
+  <rect x="72" y="72" width="880" height="880" rx="120" fill="none" stroke="#1B2A4A" stroke-width="28"/>
+
+  <!-- Bowl icon -->
+  <g transform="translate(512 250)">
+    <!-- steam -->
+    <g fill="none" stroke="#E3262E" stroke-width="16" stroke-linecap="round">
+      <path d="M-70 -60 c-22 -26 22 -42 0 -72"/>
+      <path d="M0 -70 c-22 -26 22 -42 0 -72"/>
+      <path d="M70 -60 c-22 -26 22 -42 0 -72"/>
+    </g>
+    <!-- chopsticks -->
+    <g stroke="#1B2A4A" stroke-width="14" stroke-linecap="round">
+      <line x1="40" y1="20" x2="190" y2="-110"/>
+      <line x1="70" y1="30" x2="215" y2="-80"/>
+    </g>
+    <!-- noodles -->
+    <g fill="none" stroke="#FFC20E" stroke-width="12" stroke-linecap="round">
+      <path d="M-130 22 q15 -34 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0"/>
+      <path d="M-115 22 q15 -50 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0"/>
+    </g>
+    <!-- bowl -->
+    <path d="M-160 30 H160 A160 130 0 0 1 -160 30 Z" fill="#E3262E"/>
+    <rect x="-172" y="22" width="344" height="22" rx="11" fill="#1B2A4A"/>
+    <path d="M-60 150 H60 L48 172 H-48 Z" fill="#1B2A4A"/>
+    <!-- bowl pattern -->
+    <g fill="#FFFFFF" opacity="0.9">
+      <circle cx="-80" cy="85" r="10"/>
+      <circle cx="0" cy="100" r="10"/>
+      <circle cx="80" cy="85" r="10"/>
+    </g>
+  </g>
+
+  <!-- Wordmark plate over stripes -->
+  <rect x="130" y="466" width="764" height="200" rx="36" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="14"/>
+  <text x="512" y="616" text-anchor="middle"
+        font-family="Inter, 'Inter Black', 'Arial Black', Helvetica, sans-serif" font-weight="900"
+        font-size="138" letter-spacing="0" fill="#E3262E"
+        stroke="#1B2A4A" stroke-width="6" paint-order="stroke">RAMYUN</text>
+
+  <!-- STATION -->
+  <text x="523" y="800" text-anchor="middle"
+        font-family="Inter, 'Arial Black', Helvetica, sans-serif" font-weight="900"
+        font-size="96" letter-spacing="22" fill="#1B2A4A">STATION</text>
+  <text x="515" y="866" text-anchor="middle"
+        font-family="'WenQuanYi Zen Hei', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-weight="700"
+        font-size="34" letter-spacing="6" fill="#E3262E">라면 · 24H</text>
+</svg>
