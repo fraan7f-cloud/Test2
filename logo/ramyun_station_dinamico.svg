@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <clipPath id="badge"><rect x="72" y="72" width="880" height="880" rx="120"/></clipPath>
+  </defs>
+
+  <!-- Badge -->
+  <rect x="72" y="72" width="880" height="880" rx="120" fill="#FFFFFF"/>
+  <g clip-path="url(#badge)">
+    <!-- Sunburst behind bowl -->
+    <g transform="translate(512 270)" fill="#FFC20E" opacity="0.22">
+      <path d="M0 0 L-40 -420 L40 -420 Z"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(30)"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(60)"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(90)"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(120)"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(150)"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(180)"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(210)"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(240)"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(270)"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(300)"/>
+      <path d="M0 0 L-40 -420 L40 -420 Z" transform="rotate(330)"/>
+    </g>
+
+    <!-- Diagonal racing stripes -->
+    <g transform="rotate(-8 512 600)">
+      <rect x="-100" y="520" width="1300" height="46" fill="#FFC20E"/>
+      <rect x="-100" y="566" width="1300" height="46" fill="#E3262E"/>
+      <rect x="-100" y="612" width="1300" height="46" fill="#1B2A4A"/>
+    </g>
+  </g>
+  <rect x="72" y="72" width="880" height="880" rx="120" fill="none" stroke="#1B2A4A" stroke-width="28"/>
+
+  <!-- Bowl icon (tilted, noodles lifted) -->
+  <g transform="translate(500 262) rotate(-6) scale(0.94)">
+    <!-- steam -->
+    <g fill="none" stroke="#E3262E" stroke-width="15" stroke-linecap="round">
+      <path d="M-110 -40 c-22 -26 22 -42 0 -72"/>
+      <path d="M-45 -60 c-22 -26 22 -42 0 -72"/>
+    </g>
+    <!-- chopsticks -->
+    <g stroke="#1B2A4A" stroke-width="14" stroke-linecap="round">
+      <line x1="20" y1="-10" x2="230" y2="-170"/>
+      <line x1="40" y1="10" x2="250" y2="-140"/>
+    </g>
+    <!-- lifted noodles -->
+    <g fill="none" stroke="#FFC20E" stroke-width="11" stroke-linecap="round">
+      <path d="M40 0 C 20 -40, 70 -60, 50 -100"/>
+      <path d="M58 6 C 40 -30, 90 -50, 72 -95"/>
+      <path d="M76 12 C 60 -20, 108 -45, 92 -90"/>
+      <path d="M-130 30 q15 -30 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0"/>
+    </g>
+    <!-- bowl -->
+    <path d="M-160 30 H160 A160 130 0 0 1 -160 30 Z" fill="#E3262E"/>
+    <rect x="-172" y="22" width="344" height="22" rx="11" fill="#1B2A4A"/>
+    <path d="M-60 150 H60 L48 172 H-48 Z" fill="#1B2A4A"/>
+    <!-- highlight swoosh -->
+    <path d="M-120 60 Q-110 120 -40 150" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+  </g>
+
+  <!-- Speed lines left of bowl -->
+  <g stroke="#1B2A4A" stroke-width="12" stroke-linecap="round">
+    <line x1="150" y1="262" x2="270" y2="262"/>
+    <line x1="180" y1="302" x2="290" y2="302"/>
+    <line x1="140" y1="342" x2="280" y2="342"/>
+  </g>
+  <!-- sparkles -->
+  <g fill="#E3262E">
+    <path d="M820 180 l10 26 26 10 -26 10 -10 26 -10 -26 -26 -10 26 -10z"/>
+    <path d="M190 470 l7 17 17 7 -17 7 -7 17 -7 -17 -17 -7 17 -7z" fill="#FFC20E"/>
+  </g>
+
+  <!-- Wordmark plate (slanted parallelogram) with offset shadow -->
+  <g transform="rotate(-8 512 590)">
+    <path d="M168 494 H904 L866 702 H130 Z" fill="#1B2A4A"/>
+    <path d="M150 478 H886 L848 686 H112 Z" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="14" stroke-linejoin="round"/>
+    <g transform="translate(499 640) skewX(-12)">
+      <text x="8" y="8" text-anchor="middle"
+            font-family="Inter, 'Arial Black', Helvetica, sans-serif" font-weight="900"
+            font-size="146" fill="#1B2A4A">RAMYUN</text>
+      <text x="0" y="0" text-anchor="middle"
+            font-family="Inter, 'Arial Black', Helvetica, sans-serif" font-weight="900"
+            font-size="146" fill="#E3262E"
+            stroke="#1B2A4A" stroke-width="6" paint-order="stroke">RAMYUN</text>
+    </g>
+  </g>
+
+  <!-- STATION, slanted with speed lines -->
+  <g transform="translate(560 830) skewX(-12)">
+    <text x="0" y="0" text-anchor="middle"
+          font-family="Inter, 'Arial Black', Helvetica, sans-serif" font-weight="900"
+          font-size="92" letter-spacing="14" fill="#1B2A4A">STATION</text>
+  </g>
+  <g stroke="#E3262E" stroke-width="10" stroke-linecap="round">
+    <line x1="130" y1="770" x2="200" y2="770"/>
+    <line x1="110" y1="798" x2="190" y2="798"/>
+    <line x1="140" y1="826" x2="200" y2="826"/>
+  </g>
+  <text x="540" y="892" text-anchor="middle"
+        font-family="'WenQuanYi Zen Hei', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-weight="700"
+        font-size="34" letter-spacing="6" fill="#E3262E">라면 · 24H</text>
+</svg>
