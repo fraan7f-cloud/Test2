@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ramyun Station Pronto</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root { --red:#E3262F; --red-d:#B5121B; --navy:#1B2A4A; --navy-d:#0E1730; --cream:#F4E7D7; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:#222; font-family:Montserrat, sans-serif; display:flex; flex-direction:column; gap:40px; padding:40px; align-items:center; }
+  .flyer { width:1080px; height:1920px; position:relative; overflow:hidden; }
+  .grain::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.18; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  /* ---------- FLYER 1 : crema ---------- */
+  #f1 { background:radial-gradient(120% 80% at 70% 45%, #FBF1E4 0%, var(--cream) 55%, #EAD6C0 100%); }
+  #f1 .bgword { position:absolute; font-family:Anton; font-size:430px; line-height:.82; color:rgba(227,38,47,.14);
+    writing-mode:vertical-rl; transform:rotate(180deg); top:180px; left:30px; letter-spacing:6px; }
+  #f1 .bgword.b { left:430px; color:rgba(227,38,47,.08); }
+  #f1 .logo { position:absolute; top:90px; left:50%; transform:translateX(-50%); width:470px; }
+  #f1 .card { position:absolute; top:520px; left:120px; width:1250px; height:860px; border-radius:46px; overflow:hidden;
+    transform:rotate(-4deg); box-shadow:0 60px 90px -30px rgba(60,20,10,.55), 0 20px 40px rgba(60,20,10,.25); border:14px solid #fff; }
+  #f1 .card img { width:100%; height:100%; object-fit:cover; object-position:30% 50%; }
+  #f1 .tag { position:absolute; top:1180px; left:70px; background:var(--red); color:#fff; font-family:Anton; font-size:170px; line-height:1;
+    padding:34px 60px 30px; transform:rotate(-4deg); box-shadow:0 25px 45px rgba(120,10,10,.45);
+    -webkit-mask: radial-gradient(14px at 0 50%, #0000 98%, #000) left/51% 40px repeat-y, radial-gradient(14px at 100% 50%, #0000 98%, #000) right/51% 40px repeat-y; }
+  #f1 .tag small { display:block; font-family:Montserrat; font-weight:800; font-size:34px; letter-spacing:10px; margin-bottom:8px; opacity:.92; }
+  #f1 .sub { position:absolute; top:1530px; left:90px; right:90px; color:var(--navy); }
+  #f1 .sub h2 { font-family:Anton; font-size:84px; line-height:1; letter-spacing:1px; }
+  #f1 .sub h2 span { color:var(--red); }
+  #f1 .sub p { font-weight:600; font-size:34px; margin-top:16px; opacity:.85; }
+  #f1 .pill { position:absolute; bottom:0; left:50%; transform:translateX(-50%); background:var(--red); color:#fff; border-radius:44px 44px 0 0;
+    padding:30px 70px 38px; display:flex; align-items:center; gap:28px; white-space:nowrap; }
+  #f1 .pill .ic { width:78px; height:78px; border:5px solid #fff; border-radius:50%; display:grid; place-items:center; }
+  #f1 .pill b { font-weight:800; font-size:40px; display:block; }
+  #f1 .pill span { font-weight:600; font-size:32px; }
+
+  /* ---------- FLYER 2 : navy ---------- */
+  #f2 { background:radial-gradient(90% 60% at 50% 55%, #2B3F6B 0%, var(--navy) 50%, var(--navy-d) 100%); color:#fff; }
+  #f2 .blur { position:absolute; border-radius:50%; overflow:hidden; filter:blur(18px); opacity:.75; }
+  #f2 .blur img { width:100%; height:100%; object-fit:cover; }
+  #f2 .b1 { width:330px; height:330px; top:120px; right:-90px; }
+  #f2 .b2 { width:260px; height:260px; top:1330px; left:-80px; }
+  #f2 .b3 { width:180px; height:180px; top:360px; left:70px; filter:blur(10px); }
+  #f2 .eyebrow { position:absolute; top:330px; width:100%; text-align:center; font-weight:700; font-size:40px; letter-spacing:12px; }
+  #f2 .big { position:absolute; top:385px; width:100%; text-align:center; font-family:Anton; font-size:330px; line-height:1; letter-spacing:4px;
+    text-shadow:0 20px 50px rgba(0,0,0,.4); }
+  #f2 .big span { color:var(--red); }
+  #f2 .line { position:absolute; top:770px; width:100%; text-align:center; font-weight:600; font-size:38px; letter-spacing:6px; opacity:.9; }
+  #f2 .watermark { position:absolute; top:880px; left:-60px; font-family:Anton; font-size:520px; color:rgba(255,255,255,.05); white-space:nowrap; transform:rotate(-12deg); }
+  #f2 .photo { position:absolute; top:880px; left:70px; width:940px; height:560px; border-radius:40px; overflow:hidden;
+    box-shadow:0 0 0 6px rgba(255,255,255,.9), 0 40px 120px rgba(227,38,47,.55), 0 30px 60px rgba(0,0,0,.5); }
+  #f2 .photo img { width:100%; height:100%; object-fit:cover; object-position:50% 45%; }
+  #f2 .badge { position:absolute; top:830px; right:40px; width:220px; height:220px; border-radius:50%; background:var(--red); display:grid; place-items:center; text-align:center;
+    font-family:Anton; font-size:46px; line-height:1.02; transform:rotate(12deg); box-shadow:0 20px 40px rgba(0,0,0,.45); border:6px dashed rgba(255,255,255,.7); outline:10px solid var(--red); }
+  #f2 .steps { position:absolute; top:1485px; left:70px; right:70px; display:flex; justify-content:space-between; }
+  #f2 .step { width:290px; text-align:center; }
+  #f2 .step .n { width:96px; height:96px; margin:0 auto 18px; border-radius:50%; background:rgba(255,255,255,.1); border:3px solid var(--red); display:grid; place-items:center; font-family:Anton; font-size:52px; }
+  #f2 .step b { display:block; font-family:Anton; font-size:50px; letter-spacing:2px; }
+  #f2 .step span { font-size:26px; opacity:.8; font-weight:500; }
+  #f2 .logo { position:absolute; bottom:55px; left:50%; transform:translateX(-50%); width:320px; }
+
+  /* ---------- FLYER 3 : foto completa ---------- */
+  #f3 { background:#fff; }
+  #f3 .hero { position:absolute; inset:0 0 auto 0; height:1240px; overflow:hidden; }
+  #f3 .hero img { height:100%; width:auto; position:absolute; left:-560px; }
+  #f3 .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,23,48,.75) 0%, rgba(14,23,48,0) 28%, rgba(14,23,48,0) 70%, rgba(14,23,48,.35) 100%); }
+  #f3 .top { position:absolute; top:90px; width:100%; text-align:center; color:#fff; z-index:2; font-weight:800; font-size:40px; letter-spacing:14px; text-shadow:0 4px 18px rgba(0,0,0,.5); }
+  #f3 .band { position:absolute; top:1080px; left:-80px; right:-80px; height:430px; background:var(--red); transform:skewY(-7deg); z-index:3;
+    box-shadow:0 -20px 50px rgba(0,0,0,.35); }
+  #f3 .band::before { content:""; position:absolute; left:0; right:0; top:-26px; height:26px; background:var(--navy); }
+  #f3 .bandtxt { position:absolute; top:1040px; width:100%; text-align:center; color:#fff; z-index:4; transform:rotate(-7deg); }
+  #f3 .bandtxt .p { font-family:Anton; font-size:300px; line-height:1; letter-spacing:8px; text-shadow:0 14px 0 var(--red-d); }
+  #f3 .bandtxt .s { font-weight:800; font-size:44px; letter-spacing:5px; margin-top:6px; }
+  #f3 .bottom { position:absolute; top:1580px; width:100%; text-align:center; z-index:5; }
+  #f3 .bottom img { width:520px; }
+  #f3 .bottom p { margin-top:26px; color:var(--navy); font-weight:700; font-size:34px; letter-spacing:3px; }
+  #f3 .bottom p span { color:var(--red); }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<div class="flyer grain" id="f1">
+  <div class="bgword">RAMYUN</div>
+  <div class="bgword b">RAMYUN</div>
+  <img class="logo" src="assets/logo.png" alt="Ramyun Station">
+  <div class="card"><img src="assets/maquina.jpg" alt=""></div>
+  <div class="tag"><small>MUY</small>¡PRONTO!</div>
+  <div class="sub">
+    <h2>AUTOSERVICIO DE <span>RAMEN</span><br>COREANO</h2>
+    <p>Elige tu ramyun, cocínalo tú mismo y disfruta.</p>
+  </div>
+  <div class="pill">
+    <div class="ic"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+    <div><b>Abrimos muy pronto</b><span>¡Prepárate para la experiencia!</span></div>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="flyer grain" id="f2">
+  <div class="blur b1"><img src="assets/maquina.jpg" style="object-position:78% 60%"></div>
+  <div class="blur b2"><img src="assets/maquina.jpg" style="object-position:20% 55%"></div>
+  <div class="blur b3"><img src="assets/maquina.jpg" style="object-position:55% 60%"></div>
+  <div class="eyebrow">AUTOSERVICIO DE RAMEN</div>
+  <div class="big">PRONTO<span>.</span></div>
+  <div class="line">SABOR COREANO · A TU MANERA</div>
+  <div class="watermark">라면</div>
+  <div class="photo"><img src="assets/maquina.jpg" alt=""></div>
+  <div class="badge">MUY<br>PRONTO</div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><b>ELIGE</b><span>tu ramyun favorito</span></div>
+    <div class="step"><div class="n">2</div><b>COCINA</b><span>en la máquina</span></div>
+    <div class="step"><div class="n">3</div><b>DISFRUTA</b><span>al instante</span></div>
+  </div>
+  <img class="logo" src="assets/logo-light.png" alt="Ramyun Station">
+</div>
+
+<!-- 3 -->
+<div class="flyer" id="f3">
+  <div class="hero"><img src="assets/maquina.jpg" alt=""></div>
+  <div class="top">MÁQUINAS DE AUTOSERVICIO</div>
+  <div class="band"></div>
+  <div class="bandtxt"><div class="p">PRONTO</div><div class="s">LLEGA EL RAMEN COREANO</div></div>
+  <div class="bottom">
+    <img src="assets/logo.png" alt="Ramyun Station">
+    <p>ELIGE · COCINA · <span>DISFRUTA</span></p>
+  </div>
+</div>
+
+</body>
+</html>
