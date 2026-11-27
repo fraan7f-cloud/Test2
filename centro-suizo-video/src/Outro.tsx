@@ -70,7 +70,7 @@ const Card: React.FC<{ at: number; dir: number; city: string; lines: string[] }>
       </div>
       <div style={{ height: 3, margin: "18px 0 22px", background: "linear-gradient(90deg, rgba(255,215,117,0.9), transparent)", width: `${interpolate(f - at, [8, 30], [0, 100], clamp)}%` }} />
       {lines.map((l, i) => (
-        <div key={i} style={{ fontFamily: SANS, fontWeight: i === 0 ? 800 : 600, fontSize: 46, color: "#fff", lineHeight: 1.3,
+        <div key={i} style={{ fontFamily: SANS, fontWeight: 700, fontSize: 46, color: "#fff", lineHeight: 1.3,
           opacity: interpolate(f - at, [12 + i * 5, 22 + i * 5], [0, 1], clamp), transform: `translateY(${interpolate(f - at, [12 + i * 5, 22 + i * 5], [20, 0], clamp)}px)` }}>{l}</div>
       ))}
     </div>
@@ -88,8 +88,8 @@ export const OutroBranches: React.FC = () => {
         <Kinetic text="NUESTRAS SUCURSALES" at={14} size={40} weight={700} spacing={8} stagger={0.6} />
       </div>
       <div style={{ position: "absolute", top: 640, width: "100%", display: "flex", flexDirection: "column", gap: 50 }}>
-        <Card at={18} dir={-1} city="ARICA" lines={["Arturo Prat 478"]} />
-        <Card at={34} dir={1} city="IQUIQUE" lines={["Galería 18 de Septiembre, Local 3", "Almirante Latorre 708"]} />
+        <Card at={18} dir={-1} city="ARICA" lines={["Galería 18 de Septiembre, Local 3", "Arturo Prat 478"]} />
+        <Card at={34} dir={1} city="IQUIQUE" lines={["Almirante La Torre 708"]} />
       </div>
       {[0, 1, 2, 3].map((i) => <Sparkle key={i} x={150 + i * 260} y={600 + (i % 2) * 900} size={55} frame={f} phase={i * 1.5} />)}
     </AbsoluteFill>
