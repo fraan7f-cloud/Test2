@@ -3,130 +3,232 @@
 <head>
 <meta charset="utf-8">
 <title>Ramyun Station Pronto</title>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  :root { --red:#E3262F; --red-d:#B5121B; --navy:#1B2A4A; --navy-d:#0E1730; --cream:#F4E7D7; }
+  :root { --red:#E3262F; --red2:#D0222B; --red-d:#A3141B; --navy:#1B2A4A; --cream:#F2E3D2; --yellow:#F6C431; }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:#222; font-family:Montserrat, sans-serif; display:flex; flex-direction:column; gap:40px; padding:40px; align-items:center; }
-  .flyer { width:1080px; height:1920px; position:relative; overflow:hidden; }
-  .grain::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.18; mix-blend-mode:multiply;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  body { background:#1d1d1d; font-family:Montserrat, sans-serif; display:flex; flex-direction:column; gap:40px; padding:40px; align-items:center; }
+  .flyer { width:1080px; height:1920px; position:relative; overflow:hidden; isolation:isolate; }
+  .flyer > * { position:absolute; }
+  .grain::after { content:""; position:absolute; inset:0; pointer-events:none; z-index:50; opacity:.16; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .distress { -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='g' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.045' numOctaves='4' seed='7' result='a'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' seed='2' result='b'/%3E%3CfeComposite in='a' in2='b' operator='arithmetic' k2='.75' k3='.6' k4='-.18'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -7 0 0 0 4.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    -webkit-mask-size:700px 700px; }
+  .steam { width:220px; height:330px; mix-blend-mode:screen; pointer-events:none; }
+  .shadowed { filter:drop-shadow(0 22px 22px rgba(40,10,5,.38)) drop-shadow(0 6px 6px rgba(40,10,5,.25)); }
 
-  /* ---------- FLYER 1 : crema ---------- */
-  #f1 { background:radial-gradient(120% 80% at 70% 45%, #FBF1E4 0%, var(--cream) 55%, #EAD6C0 100%); }
-  #f1 .bgword { position:absolute; font-family:Anton; font-size:430px; line-height:.82; color:rgba(227,38,47,.14);
-    writing-mode:vertical-rl; transform:rotate(180deg); top:180px; left:30px; letter-spacing:6px; }
-  #f1 .bgword.b { left:430px; color:rgba(227,38,47,.08); }
-  #f1 .logo { position:absolute; top:90px; left:50%; transform:translateX(-50%); width:470px; }
-  #f1 .card { position:absolute; top:520px; left:120px; width:1250px; height:860px; border-radius:46px; overflow:hidden;
-    transform:rotate(-4deg); box-shadow:0 60px 90px -30px rgba(60,20,10,.55), 0 20px 40px rgba(60,20,10,.25); border:14px solid #fff; }
-  #f1 .card img { width:100%; height:100%; object-fit:cover; object-position:30% 50%; }
-  #f1 .tag { position:absolute; top:1180px; left:70px; background:var(--red); color:#fff; font-family:Anton; font-size:170px; line-height:1;
-    padding:34px 60px 30px; transform:rotate(-4deg); box-shadow:0 25px 45px rgba(120,10,10,.45);
-    -webkit-mask: radial-gradient(14px at 0 50%, #0000 98%, #000) left/51% 40px repeat-y, radial-gradient(14px at 100% 50%, #0000 98%, #000) right/51% 40px repeat-y; }
-  #f1 .tag small { display:block; font-family:Montserrat; font-weight:800; font-size:34px; letter-spacing:10px; margin-bottom:8px; opacity:.92; }
-  #f1 .sub { position:absolute; top:1530px; left:90px; right:90px; color:var(--navy); }
-  #f1 .sub h2 { font-family:Anton; font-size:84px; line-height:1; letter-spacing:1px; }
-  #f1 .sub h2 span { color:var(--red); }
-  #f1 .sub p { font-weight:600; font-size:34px; margin-top:16px; opacity:.85; }
-  #f1 .pill { position:absolute; bottom:0; left:50%; transform:translateX(-50%); background:var(--red); color:#fff; border-radius:44px 44px 0 0;
-    padding:30px 70px 38px; display:flex; align-items:center; gap:28px; white-space:nowrap; }
-  #f1 .pill .ic { width:78px; height:78px; border:5px solid #fff; border-radius:50%; display:grid; place-items:center; }
-  #f1 .pill b { font-weight:800; font-size:40px; display:block; }
-  #f1 .pill span { font-weight:600; font-size:32px; }
+  /* ============ 1 · CREMA (ref. hamburguesa) ============ */
+  #f1 { background:radial-gradient(70% 45% at 62% 50%, #FCF4EA 0%, #F4E6D6 55%, #EAD5BF 100%); }
+  #f1 .vt { font-family:Anton; font-size:330px; line-height:.9; letter-spacing:22px; color:#ECB3A2; writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; }
+  #f1 .vt.a { left:34px; top:96px; }
+  #f1 .vt.b { left:338px; top:360px; color:#EFC0B0; }
+  #f1 .logo { left:390px; top:62px; width:300px; }
+  #f1 .glow { left:150px; top:470px; width:1000px; height:1000px; border-radius:50%; background:radial-gradient(closest-side, rgba(255,251,244,.95), rgba(255,251,244,0)); }
+  #f1 .hero { left:118px; top:518px; width:1000px; filter:drop-shadow(-18px 26px 30px rgba(50,20,8,.35)); }
+  #f1 .s2 { left:668px; top:850px; }
+  #f1 .gshadow { left:70px; top:1600px; width:1000px; height:90px; border-radius:50%; background:radial-gradient(closest-side, rgba(70,30,10,.45), rgba(70,30,10,0)); }
+  #f1 .pk-b { left:58px; top:1206px; width:412px; transform:rotate(-8deg); }
+  #f1 .pk-s { left:782px; top:1262px; width:400px; transform:rotate(-10deg); }
+  #f1 .pk-j { left:340px; top:1266px; width:515px; transform:rotate(4deg); }
+  #f1 .fl-c { left:842px; top:196px; width:205px; transform:rotate(15deg); filter:drop-shadow(0 30px 24px rgba(50,20,8,.3)); }
+  #f1 .fl-s { left:30px; top:318px; width:118px; transform:rotate(-18deg); filter:blur(3px) drop-shadow(0 20px 16px rgba(50,20,8,.25)); }
+  #f1 .ticket { left:44px; top:870px; width:520px; height:206px; transform:rotate(-6deg); filter:drop-shadow(0 18px 20px rgba(110,10,10,.45)); }
+  #f1 .ticket svg { position:absolute; inset:0; }
+  #f1 .ticket .tx { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; }
+  #f1 .ticket small { font-weight:800; font-size:34px; letter-spacing:12px; margin-bottom:-6px; padding-left:12px; }
+  #f1 .ticket b { font-family:Anton; font-weight:400; font-size:132px; line-height:1; letter-spacing:2px; }
+  #f1 .tab { left:120px; top:1748px; width:840px; height:172px; background:var(--red); border-radius:44px 44px 0 0; display:flex; align-items:center; gap:28px; padding:0 52px; color:#fff; box-shadow:0 -10px 30px rgba(120,20,10,.18); }
+  #f1 .tab .ic { width:96px; height:96px; flex:none; border:5px solid #fff; border-radius:50%; display:grid; place-items:center; }
+  #f1 .tab b { display:block; font-weight:800; font-size:44px; line-height:1.15; }
+  #f1 .tab span { display:block; font-weight:600; font-size:38px; opacity:.95; }
 
-  /* ---------- FLYER 2 : navy ---------- */
-  #f2 { background:radial-gradient(90% 60% at 50% 55%, #2B3F6B 0%, var(--navy) 50%, var(--navy-d) 100%); color:#fff; }
-  #f2 .blur { position:absolute; border-radius:50%; overflow:hidden; filter:blur(18px); opacity:.75; }
-  #f2 .blur img { width:100%; height:100%; object-fit:cover; }
-  #f2 .b1 { width:330px; height:330px; top:120px; right:-90px; }
-  #f2 .b2 { width:260px; height:260px; top:1330px; left:-80px; }
-  #f2 .b3 { width:180px; height:180px; top:360px; left:70px; filter:blur(10px); }
-  #f2 .eyebrow { position:absolute; top:330px; width:100%; text-align:center; font-weight:700; font-size:40px; letter-spacing:12px; }
-  #f2 .big { position:absolute; top:385px; width:100%; text-align:center; font-family:Anton; font-size:330px; line-height:1; letter-spacing:4px;
-    text-shadow:0 20px 50px rgba(0,0,0,.4); }
-  #f2 .big span { color:var(--red); }
-  #f2 .line { position:absolute; top:770px; width:100%; text-align:center; font-weight:600; font-size:38px; letter-spacing:6px; opacity:.9; }
-  #f2 .watermark { position:absolute; top:880px; left:-60px; font-family:Anton; font-size:520px; color:rgba(255,255,255,.05); white-space:nowrap; transform:rotate(-12deg); }
-  #f2 .photo { position:absolute; top:880px; left:70px; width:940px; height:560px; border-radius:40px; overflow:hidden;
-    box-shadow:0 0 0 6px rgba(255,255,255,.9), 0 40px 120px rgba(227,38,47,.55), 0 30px 60px rgba(0,0,0,.5); }
-  #f2 .photo img { width:100%; height:100%; object-fit:cover; object-position:50% 45%; }
-  #f2 .badge { position:absolute; top:830px; right:40px; width:220px; height:220px; border-radius:50%; background:var(--red); display:grid; place-items:center; text-align:center;
-    font-family:Anton; font-size:46px; line-height:1.02; transform:rotate(12deg); box-shadow:0 20px 40px rgba(0,0,0,.45); border:6px dashed rgba(255,255,255,.7); outline:10px solid var(--red); }
-  #f2 .steps { position:absolute; top:1485px; left:70px; right:70px; display:flex; justify-content:space-between; }
-  #f2 .step { width:290px; text-align:center; }
-  #f2 .step .n { width:96px; height:96px; margin:0 auto 18px; border-radius:50%; background:rgba(255,255,255,.1); border:3px solid var(--red); display:grid; place-items:center; font-family:Anton; font-size:52px; }
-  #f2 .step b { display:block; font-family:Anton; font-size:50px; letter-spacing:2px; }
-  #f2 .step span { font-size:26px; opacity:.8; font-weight:500; }
-  #f2 .logo { position:absolute; bottom:55px; left:50%; transform:translateX(-50%); width:320px; }
+  /* ============ 2 · ROJO (ref. mini cake) ============ */
+  #f2 { background:radial-gradient(75% 55% at 50% 58%, #E2363E 0%, #CB2129 48%, #A3141B 100%); color:#fff; }
+  #f2 .kr { left:-40px; width:1160px; text-align:center; top:760px; font-family:Pacifico; font-size:330px; line-height:1; color:rgba(255,255,255,.1); transform:rotate(-12deg); white-space:nowrap; }
+  #f2 .bl1 { left:64px; top:46px; width:150px; transform:rotate(-18deg); filter:blur(2.5px) drop-shadow(0 18px 14px rgba(60,0,5,.35)); }
+  #f2 .bl2 { left:724px; top:-74px; width:480px; transform:rotate(27deg); filter:blur(10px); opacity:.97; }
+  #f2 .bl3 { left:-160px; top:1310px; width:450px; transform:rotate(-21deg); filter:blur(9px); }
+  #f2 .bl4 { left:936px; top:1080px; width:190px; transform:rotate(22deg); filter:blur(5px); }
+  #f2 .title { left:92px; top:288px; }
+  #f2 .title .k { font-weight:800; font-size:38px; letter-spacing:4px; }
+  #f2 .title .big { font-weight:900; font-size:178px; line-height:.95; letter-spacing:-3px; margin:2px 0 6px -6px; text-shadow:0 12px 30px rgba(90,0,5,.35); }
+  #f2 .title .t { font-weight:700; font-size:35px; letter-spacing:2px; opacity:.95; }
+  #f2 .pod-top { left:0; top:1300px; width:1080px; height:320px; }
+  #f2 .pod-front { left:0; top:1300px; width:1080px; height:320px; }
+  #f2 .pod-sh { left:70px; top:1572px; width:940px; height:110px; border-radius:50%; background:radial-gradient(closest-side, rgba(70,0,5,.55), rgba(70,0,5,0)); }
+  #f2 .hero { left:192px; top:640px; width:702px; filter:drop-shadow(0 30px 28px rgba(60,0,5,.45)); }
+  #f2 .s1 { left:326px; top:1010px; }
+  #f2 .cta { left:50%; top:1660px; transform:translateX(-50%); white-space:nowrap; background:rgba(110,8,14,.42); border:2px solid rgba(255,255,255,.18); border-radius:60px; padding:16px 46px 18px; font-weight:600; font-size:46px; letter-spacing:.5px; backdrop-filter:blur(6px); }
+  #f2 .logo { left:395px; top:1782px; width:290px; }
 
-  /* ---------- FLYER 3 : foto completa ---------- */
-  #f3 { background:#fff; }
-  #f3 .hero { position:absolute; inset:0 0 auto 0; height:1240px; overflow:hidden; }
-  #f3 .hero img { height:100%; width:auto; position:absolute; left:-560px; }
-  #f3 .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,23,48,.75) 0%, rgba(14,23,48,0) 28%, rgba(14,23,48,0) 70%, rgba(14,23,48,.35) 100%); }
-  #f3 .top { position:absolute; top:90px; width:100%; text-align:center; color:#fff; z-index:2; font-weight:800; font-size:40px; letter-spacing:14px; text-shadow:0 4px 18px rgba(0,0,0,.5); }
-  #f3 .band { position:absolute; top:1080px; left:-80px; right:-80px; height:430px; background:var(--red); transform:skewY(-7deg); z-index:3;
-    box-shadow:0 -20px 50px rgba(0,0,0,.35); }
-  #f3 .band::before { content:""; position:absolute; left:0; right:0; top:-26px; height:26px; background:var(--navy); }
-  #f3 .bandtxt { position:absolute; top:1040px; width:100%; text-align:center; color:#fff; z-index:4; transform:rotate(-7deg); }
-  #f3 .bandtxt .p { font-family:Anton; font-size:300px; line-height:1; letter-spacing:8px; text-shadow:0 14px 0 var(--red-d); }
-  #f3 .bandtxt .s { font-weight:800; font-size:44px; letter-spacing:5px; margin-top:6px; }
-  #f3 .bottom { position:absolute; top:1580px; width:100%; text-align:center; z-index:5; }
-  #f3 .bottom img { width:520px; }
-  #f3 .bottom p { margin-top:26px; color:var(--navy); font-weight:700; font-size:34px; letter-spacing:3px; }
-  #f3 .bottom p span { color:var(--red); }
+  /* ============ 3 · ONDAS (ref. special ramen) ============ */
+  #f3 { background:#EFDAC1; }
+  #f3 .pattern, #f3 .bands { left:0; top:0; width:1080px; height:1920px; }
+  #f3 .title { left:66px; top:78px; }
+  #f3 .title .k { font-weight:800; font-size:30px; letter-spacing:5px; color:var(--navy); margin-left:6px; }
+  #f3 .title .big { font-weight:900; font-size:150px; line-height:.9; letter-spacing:-3px; color:var(--red2); text-shadow:0 7px 0 #9E1219, 0 18px 26px rgba(90,20,10,.25); margin-top:10px; }
+  #f3 .badge { right:52px; top:86px; width:300px; height:128px; background:var(--red2); border-radius:30px; display:grid; place-items:center; transform:rotate(-3deg); box-shadow:0 14px 26px rgba(120,20,10,.3); }
+  #f3 .badge::after { content:""; position:absolute; left:46px; bottom:-26px; border-left:22px solid transparent; border-right:22px solid transparent; border-top:30px solid var(--red2); transform:skewX(18deg); }
+  #f3 .badge img { width:236px; }
+  #f3 .hero { left:330px; top:418px; width:739px; filter:drop-shadow(-24px 30px 30px rgba(70,15,5,.42)); }
+  #f3 .s1 { left:478px; top:812px; }
+  #f3 .fl-c { left:58px; top:930px; width:220px; transform:rotate(-14deg); }
+  #f3 .pk-b { left:296px; top:1236px; width:340px; transform:rotate(10deg); }
+  #f3 .pk-s { left:548px; top:1226px; width:500px; transform:rotate(-6deg); }
+  #f3 .pk-h { left:900px; top:1300px; width:270px; transform:rotate(14deg); }
+  .card { width:460px; padding:26px 28px 28px; border-radius:26px; color:#fff; background:linear-gradient(140deg, rgba(255,255,255,.30), rgba(255,255,255,.10)), rgba(60,24,24,.36);
+    border:2.5px solid rgba(255,255,255,.75); backdrop-filter:blur(14px) saturate(1.25); box-shadow:0 20px 40px rgba(70,20,10,.22); }
+  .card .h { display:flex; align-items:center; gap:14px; }
+  .card .h b { font-weight:900; font-size:40px; letter-spacing:-.5px; line-height:1.05; text-shadow:0 2px 8px rgba(0,0,0,.25); }
+  .card .tag { flex:none; background:var(--yellow); color:#8F1016; font-weight:900; font-size:19px; letter-spacing:1.5px; padding:6px 10px; border-radius:6px; }
+  .card p { font-weight:600; font-size:25px; line-height:1.3; margin-top:10px; text-shadow:0 1px 6px rgba(0,0,0,.25); }
+  .card .tail { position:absolute; width:34px; height:34px; background:inherit; border-right:2.5px solid rgba(255,255,255,.75); border-bottom:2.5px solid rgba(255,255,255,.75); transform:rotate(45deg); }
+  .card .pill { display:inline-flex; align-items:center; gap:12px; margin-top:18px; background:var(--red2); border-radius:40px; padding:8px 30px 8px 8px; font-weight:900; font-size:40px; letter-spacing:.5px; box-shadow:0 8px 16px rgba(120,10,10,.3); }
+  .card .pill i { width:50px; height:50px; border-radius:50%; background:#fff; display:grid; place-items:center; }
+  #f3 .c1 { left:46px; top:600px; width:440px; }
+  #f3 .c1 .tail { right:70px; bottom:-19px; }
+  #f3 .c2 { left:48px; top:1592px; width:580px; }
+  #f3 .c2 .tail { right:110px; top:-19px; transform:rotate(225deg); }
 </style>
 </head>
 <body>
 
-<!-- 1 -->
-<div class="flyer grain" id="f1">
-  <div class="bgword">RAMYUN</div>
-  <div class="bgword b">RAMYUN</div>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="steamF" x="-60%" y="-20%" width="220%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.03" numOctaves="3" seed="4" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="70" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <linearGradient id="steamG" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".28" stop-color="#fff" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
+<template id="steamT">
+  <svg class="steam" viewBox="0 0 220 330"><g filter="url(#steamF)" fill="none" stroke="url(#steamG)" stroke-linecap="round">
+    <path d="M110 330 C 70 270, 150 230, 108 170 S 72 70, 118 0" stroke-width="34"/>
+    <path d="M70 320 C 40 260, 100 220, 74 160 S 50 90, 70 40" stroke-width="16" opacity=".8"/>
+    <path d="M150 325 C 180 270, 120 230, 152 175 S 178 100, 150 50" stroke-width="16" opacity=".8"/>
+  </g></svg>
+</template>
+
+<!-- ================= 1 ================= -->
+<section class="flyer grain" id="f1">
+  <div class="vt a distress">RAMYUN</div>
+  <div class="vt b distress">RAMYUN</div>
   <img class="logo" src="assets/logo.png" alt="Ramyun Station">
-  <div class="card"><img src="assets/maquina.jpg" alt=""></div>
-  <div class="tag"><small>MUY</small>¡PRONTO!</div>
-  <div class="sub">
-    <h2>AUTOSERVICIO DE <span>RAMEN</span><br>COREANO</h2>
-    <p>Elige tu ramyun, cocínalo tú mismo y disfruta.</p>
+  <img class="fl-s" src="assets/pk-samyang.png" alt="">
+  <img class="fl-c" src="assets/pk-chapagetti.png" alt="">
+  <div class="glow"></div>
+  <img class="hero" src="assets/station.png" alt="Máquinas de autoservicio de ramen">
+  <div class="steam-slot s2"></div>
+  <div class="gshadow"></div>
+  <img class="pk-b shadowed" src="assets/pk-buldak.png" alt="">
+  <img class="pk-s shadowed" src="assets/pk-shinblack-pila.png" alt="">
+  <img class="pk-j shadowed" src="assets/pk-jin-pila.png" alt="">
+  <div class="ticket">
+    <svg data-zigzag="12" viewBox="0 0 520 206" preserveAspectRatio="none"><polygon fill="#E3262F"/></svg>
+    <div class="tx distress"><small>MUY</small><b>¡PRONTO!</b></div>
   </div>
-  <div class="pill">
-    <div class="ic"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-    <div><b>Abrimos muy pronto</b><span>¡Prepárate para la experiencia!</span></div>
+  <div class="tab">
+    <div class="ic"><svg width="54" height="54" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 24h38c0 9-8.5 15-19 15S5 33 5 24z"/><path d="M17 39l-1 4h16l-1-4"/><path d="M27 22 43 7M31 23 46 11"/><path d="M14 18c-2-3 2-4 0-8M21 18c-2-3 2-4 0-8"/></svg></div>
+    <div><b>Autoservicio de ramen</b><span>¡Abrimos muy pronto!</span></div>
   </div>
-</div>
+</section>
 
-<!-- 2 -->
-<div class="flyer grain" id="f2">
-  <div class="blur b1"><img src="assets/maquina.jpg" style="object-position:78% 60%"></div>
-  <div class="blur b2"><img src="assets/maquina.jpg" style="object-position:20% 55%"></div>
-  <div class="blur b3"><img src="assets/maquina.jpg" style="object-position:55% 60%"></div>
-  <div class="eyebrow">AUTOSERVICIO DE RAMEN</div>
-  <div class="big">PRONTO<span>.</span></div>
-  <div class="line">SABOR COREANO · A TU MANERA</div>
-  <div class="watermark">라면</div>
-  <div class="photo"><img src="assets/maquina.jpg" alt=""></div>
-  <div class="badge">MUY<br>PRONTO</div>
-  <div class="steps">
-    <div class="step"><div class="n">1</div><b>ELIGE</b><span>tu ramyun favorito</span></div>
-    <div class="step"><div class="n">2</div><b>COCINA</b><span>en la máquina</span></div>
-    <div class="step"><div class="n">3</div><b>DISFRUTA</b><span>al instante</span></div>
+<!-- ================= 2 ================= -->
+<section class="flyer grain" id="f2">
+  <div class="kr">ramyun</div>
+  <img class="bl1" src="assets/pk-samyang.png" alt="">
+  <img class="bl2" src="assets/pk-buldak.png" alt="">
+  <img class="bl4" src="assets/pk-chapagetti.png" alt="">
+  <div class="title">
+    <div class="k">AUTOSERVICIO DE RAMEN</div>
+    <div class="big">¡PRONTO!</div>
+    <div class="t">EL SABOR DE COREA, A TU MANERA</div>
   </div>
-  <img class="logo" src="assets/logo-light.png" alt="Ramyun Station">
-</div>
+  <div class="pod-sh"></div>
+  <svg class="pod-top" viewBox="0 0 1080 320">
+    <defs><radialGradient id="pt" cx="50%" cy="45%" r="62%"><stop offset="0" stop-color="#EE4C53"/><stop offset=".7" stop-color="#CF2730"/><stop offset="1" stop-color="#A9141C"/></radialGradient></defs>
+    <ellipse cx="540" cy="82" rx="430" ry="85" fill="url(#pt)"/>
+    <ellipse cx="540" cy="82" rx="430" ry="85" fill="none" stroke="#F26A70" stroke-opacity=".5" stroke-width="3"/>
+    <ellipse cx="545" cy="118" rx="320" ry="34" fill="#4a0005" opacity=".45" filter="blur(10px)"/>
+  </svg>
+  <img class="hero" src="assets/maquina-jin.png" alt="Máquina de autoservicio de ramen">
+  <div class="steam-slot s1"></div>
+  <svg class="pod-front" viewBox="0 0 1080 320">
+    <defs><linearGradient id="pf" x1="0" x2="1"><stop offset="0" stop-color="#6E0A10"/><stop offset=".22" stop-color="#A3151D"/><stop offset=".46" stop-color="#C8282F"/><stop offset=".7" stop-color="#A8171F"/><stop offset="1" stop-color="#6A090F"/></linearGradient></defs>
+    <path d="M110 82 A430 85 0 0 0 970 82 L970 215 A430 85 0 0 1 110 215 Z" fill="url(#pf)"/>
+    <path d="M110 82 A430 85 0 0 0 970 82" fill="none" stroke="#FF8A8F" stroke-opacity=".6" stroke-width="3"/>
+  </svg>
+  <img class="bl3" src="assets/pk-shinblack.png" alt="">
+  <div class="cta">¡Abrimos muy pronto!</div>
+  <img class="logo" src="assets/logo-white.png" alt="Ramyun Station">
+</section>
 
-<!-- 3 -->
-<div class="flyer" id="f3">
-  <div class="hero"><img src="assets/maquina.jpg" alt=""></div>
-  <div class="top">MÁQUINAS DE AUTOSERVICIO</div>
-  <div class="band"></div>
-  <div class="bandtxt"><div class="p">PRONTO</div><div class="s">LLEGA EL RAMEN COREANO</div></div>
-  <div class="bottom">
-    <img src="assets/logo.png" alt="Ramyun Station">
-    <p>ELIGE · COCINA · <span>DISFRUTA</span></p>
+<!-- ================= 3 ================= -->
+<section class="flyer grain" id="f3">
+  <svg class="pattern" viewBox="0 0 1080 1920">
+    <defs>
+      <g id="wave"><circle r="50" fill="#EFDAC1"/><circle r="50" fill="none"/><circle r="38" fill="none"/><circle r="26" fill="none"/><circle r="14" fill="none"/></g>
+      <pattern id="seig" width="100" height="50" patternUnits="userSpaceOnUse">
+        <g stroke="#E3C7A8" stroke-width="2.2">
+          <use href="#wave" x="0" y="0"/><use href="#wave" x="100" y="0"/>
+          <use href="#wave" x="50" y="25"/>
+          <use href="#wave" x="0" y="50"/><use href="#wave" x="100" y="50"/>
+        </g>
+      </pattern>
+    </defs>
+    <rect width="1080" height="1920" fill="url(#seig)"/>
+  </svg>
+  <svg class="bands" viewBox="0 0 1080 1920">
+    <defs><filter id="bsh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#6b1208" flood-opacity=".28"/></filter></defs>
+    <g filter="url(#bsh)" stroke-linecap="round">
+      <line x1="190" y1="1120" x2="1500" y2="420" stroke="#D3232B" stroke-width="330"/>
+      <line x1="-400" y1="2040" x2="870" y2="1360" stroke="#D3232B" stroke-width="290"/>
+    </g>
+  </svg>
+  <div class="title">
+    <div class="k">AUTOSERVICIO DE RAMEN</div>
+    <div class="big">MUY<br>PRONTO</div>
   </div>
-</div>
+  <div class="badge"><img src="assets/logo-white.png" alt="Ramyun Station"></div>
+  <img class="fl-c shadowed" src="assets/pk-chapagetti.png" alt="">
+  <img class="hero" src="assets/maquina-jin.png" alt="Máquina de autoservicio de ramen">
+  <div class="steam-slot s1"></div>
+  <img class="pk-b shadowed" src="assets/pk-buldak.png" alt="">
+  <img class="pk-h shadowed" src="assets/pk-samyang.png" alt="">
+  <img class="pk-s shadowed" src="assets/pk-shinblack-pila.png" alt="">
+  <div class="card c1">
+    <div class="h"><span class="tag">PASO 1</span><b>ELIGE TU RAMYUN</b></div>
+    <p>Escoge tu sobre favorito y colócalo en la máquina.</p>
+    <span class="tail"></span>
+  </div>
+  <div class="card c2">
+    <div class="h"><span class="tag">PASO 2</span><b>LA MÁQUINA LO COCINA</b></div>
+    <p>Agua caliente y cocción automática. Tú solo disfruta.</p>
+    <div class="pill"><i><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D0222B" stroke-width="2.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i>¡MUY PRONTO!</div>
+    <span class="tail"></span>
+  </div>
+</section>
 
+<script>
+  // steam instances
+  document.querySelectorAll('.steam-slot').forEach(s => {
+    const n = document.getElementById('steamT').content.firstElementChild.cloneNode(true);
+    n.style.position = 'absolute'; n.style.left = s.style.left; s.appendChild(n);
+  });
+  // zig-zag ticket edges
+  document.querySelectorAll('svg[data-zigzag]').forEach(svg => {
+    const [, , w, h] = svg.getAttribute('viewBox').split(' ').map(Number);
+    const n = +svg.dataset.zigzag, t = 13, step = h / n, pts = [];
+    for (let i = 0; i <= n; i++) { pts.push([t, i * step]); if (i < n) pts.push([0, i * step + step / 2]); }
+    const right = []; for (let i = n; i >= 0; i--) { right.push([w - t, i * step]); if (i > 0) right.push([w, i * step - step / 2]); }
+    svg.querySelector('polygon').setAttribute('points', pts.concat(right).map(p => p.join(',')).join(' '));
+  });
+</script>
 </body>
 </html>
